@@ -62,3 +62,38 @@ export function usersFetchData(url) {
             })
     };
 }
+
+
+export function ordersFetchData(url) {
+    console.log('Inside action',url)
+    return (dispatch) => {
+        
+        return axios({
+            url: url,
+            timeout: 20000,
+            method: 'GET',
+            responseType: 'json'
+        }).then((response) => {
+                return response.data;
+            }).then((orders) => {
+                dispatch(ordersFetchDataSuccess(orders))
+
+            })
+    };
+}
+
+export function ordersFetchDataSuccess(orders) {
+    console.log('Inside action',orders)
+    return {
+        type: 'ORDERS_FETCH_DATA_SUCCESS',
+        orders
+    };
+}
+
+export function loginUser(user) {
+  
+    return {
+        type: 'LOGIN_USER_SUCCESS',
+        user
+    };
+}

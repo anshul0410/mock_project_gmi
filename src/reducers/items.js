@@ -38,3 +38,24 @@ export function users(state = [], action) {
     }
 }
 
+
+export function currentUser(state = [], action) {
+    switch (action.type) {
+        case 'LOGIN_USER_SUCCESS':
+            return action.user;
+
+        default:
+            return state;
+    }
+}
+
+
+export function orders(state = [], action) {
+    switch (action.type) {
+        case 'ORDERS_FETCH_DATA_SUCCESS':
+            return action.orders;
+
+        default:
+            return state;
+    }
+}

@@ -4,5 +4,48 @@
     color: #ffffff;
 }
 #loginBackground{
-    background-color: #99ccff;
+    background-color: #C0BBC5;
+}
+body{
+    background-color: #C0BBC5;
+}
+.headerTrader{
+    border-bottom:1px solid black;
+    width:100%;
+    height:60px;
+    font-family:Arial;
+}
+#headerUserName{
+    font-size: 16px;
+    font-style: italic;
+}
+#headerTitle{
+    font-size:16px;
+    padding:10px;
+}
+#signOut{
+    font-size: 12px;
+    color: #0000ff;
+    padding:4px 0px 0px 10px;
+}
+
+.traderButton{
+    width: 90px;
+    height: 25px;
+    color: white;
+    background-color: black;
+    margin: 5px;
+}
+
+.tableHeader{
+    background-color: gray;
+}
+.navButton{
+    width:30px;
+    height:25px;
+    background-color: black;
+    margin: 5px;
+}
+#creationTimeId{
+    display: inline-block;
 }
