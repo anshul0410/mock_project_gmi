@@ -59,3 +59,14 @@ export function orders(state = [], action) {
             return state;
     }
 }
+
+export function instruments(state = [], action) {
+    switch (action.type) {
+        case 'INSTRUMENTS_FETCH_DATA_SUCCESS':
+            return action.instruments;
+
+        default:
+            return state;
+    }
+}
+

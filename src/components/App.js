@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { ordersFetchData, usersFetchData , loginUser} from '../actions/actions';
+import { ordersFetchData, usersFetchData , loginUser ,instrumentsFetchData} from '../actions/actions';
 import {LoginComponent} from './login/Login.component';
 import  '../styles/common.css';
 import MainComponent from './MainComponent';
@@ -12,7 +12,10 @@ const mapStateToProps = (state) => {
         // isLoading: state.itemsIsLoading,
         users: state.users,
         currentUser: state.currentUser,
-        orders: state.orders
+        orders: state.orders,
+        dialogReducer: state.dialogReducer,
+        dialog : state.dialog,
+        instruments:state.instruments
     };
 };
 
@@ -20,7 +23,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchUsersData: (url) => dispatch(usersFetchData(url)),
         loginUser: (user) =>  dispatch(loginUser(user)),
-        fetchOrdersData: (url) => dispatch(ordersFetchData(url))
+        fetchOrdersData: (url,method,data) => dispatch(ordersFetchData(url,method,data)),
+        fetchInstrumentsData: (url) => dispatch(instrumentsFetchData(url))                  
     };
 };
 

@@ -27,7 +27,7 @@ export default class TraderTableComponent extends React.Component {
                     <TableHeaderColumn dataField="name" dataSort={true}>Product Name</TableHeaderColumn>
                     <TableHeaderColumn dataField="price" >Product Price</TableHeaderColumn>
                 </BootstrapTable>*/}
-                <BootstrapTable  data={orders} striped={true} condensed  >
+                <BootstrapTable  data={orders} striped={true} condensed >
                     <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="creationTime" dataAlign="center"  dataSort={true}>creation Time</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>

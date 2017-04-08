@@ -11,7 +11,7 @@ export default class TraderDesktopComponent extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchOrdersData('http://localhost:8080/orders');
+        this.props.fetchOrdersData('http://localhost:8080/orders','get');
     }
 
 

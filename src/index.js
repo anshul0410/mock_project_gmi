@@ -6,7 +6,8 @@ import configureStore from './store/configureStore';
 import TraderDesktopComponent from './components/trader_desktop/TraderDesktop.component'
 import App from './components/App';
 import {LoginComponent} from './components/login/Login.component';
-const store = configureStore();
+
+export const store = configureStore();
 
 render(
     <Provider store={store}>
@@ -17,6 +18,7 @@ render(
             </Route>
             
     </Router>
+ 
     </Provider>,
       document.getElementById('app')
 );
