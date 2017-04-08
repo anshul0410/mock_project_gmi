@@ -96,7 +96,7 @@ export function ordersFetchData(url, method, data = undefined) {
             }).then((response) => {
                 return response.data;
             }).then((orders) => {
-                dispatch(ordersFetchDataSuccess(orders))
+                setTimeout( () => dispatch(ordersFetchDataSuccess(orders)) , 100)
 
             }).catch(() => console.log('empty get'));
         }
@@ -111,10 +111,9 @@ export function ordersFetchData(url, method, data = undefined) {
             
                 return response.data;
             }).then((orders) => {
-               
-                dispatch(ordersFetchDataSuccess(orders))
-
-            }).catch(() => dispatch(ordersFetchData(url,'get')))
+                // dispatch(ordersFetchDataSuccess(orders))
+            }).catch(() => console.log('Error post'))
+            .then(() =>  dispatch(ordersFetchData(url,'get')))
         }
 
     };

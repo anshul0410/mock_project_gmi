@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TraderTableComponent from '../order_table/TraderTable.component';
+import TraderChartComponent from '../order_chart/TraderChart.component';
 import Modal from './TraderModal';
 
 import {modal} from 'react-redux-modal' ;
@@ -17,6 +18,9 @@ export default class TraderTaskbarComponent extends React.Component {
         this.refreshTrader = this.refreshTrader.bind(this);
         this.deleteAllTrader = this.deleteAllTrader.bind(this);
         this.randomize = this.randomize.bind(this);
+        this.tableCalled = this.tableCalled.bind(this);
+        this.chartCalled = this.chartCalled.bind(this);
+
         console.log('Taskbar props - ' ,this.props.users);
     }
 
@@ -45,23 +49,18 @@ export default class TraderTaskbarComponent extends React.Component {
     deleteAllTrader() {
         console.log('delete');
         this.props.fetchOrdersData('http://localhost:8080/orders', 'del');
+        //this.setstate
         //   this.props.fetchOrdersData('http://localhost:8080/orders','get');
     }
 
-    // TradeHandler() {
-    //     console.log('Makichut')
-    //     const BasicDialog = () => (
-    //         <div>
-    //             My awesome modalbox!
-    //         </div>
-    //     )
-    //     Dialog = reduxDialog({
-    //         name: 'signupDialog' // unique name - you can't have two dialogs with the same name 
-    //     })(BasicDialog);
-       
-    //    this.props.openDialog('signupDialog')
+    tableCalled(){
+        this.setState({presentation: 0});
+    }
+
+    chartCalled(){
+        this.setState({presentation: 1});
         
-    // }
+    }
 
     randomize(no){
         console.log('Inside randomize',no);
@@ -105,7 +104,7 @@ export default class TraderTaskbarComponent extends React.Component {
             p = <TraderTableComponent {...this.props} />;
         }
         else if (this.state.presentation === 1) {
-
+            p = <TraderChartComponent {...this.props} />;
         }
         else {
             p = <TraderTableComponent {...this.props} />;
@@ -119,8 +118,8 @@ export default class TraderTaskbarComponent extends React.Component {
                     <button className="traderButton btn-sm" onClick={this.deleteAllTrader}>Delete All</button>
                     <button className="traderButton btn-sm" onClick={this.refreshTrader}>Refresh</button>
                     <span className="pull-right">
-                        <button className="navButton btn-xs"><img  src={require('./table.png')}  alt="" /></button>
-                        <button className="navButton btn-xs"><img  src={require('./chart.png')}  alt="" /></button>
+                        <button onClick={this.tableCalled} className="navButton btn-xs"><img  src={require('./table.png')}  alt="" /></button>
+                        <button onClick={this.chartCalled} className="navButton btn-xs"><img  src={require('./chart.png')}  alt="" /></button>
                     </span>
                 </nav>
                 
