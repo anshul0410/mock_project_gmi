@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import TraderTableComponent from '../order_table/TraderTable.component';
 import TraderChartComponent from '../order_chart/TraderChart.component';
 import Modal from './TraderModal';
+import Websocket from 'react-websocket';
 
 import {modal} from 'react-redux-modal' ;
 import ReduxModal from 'react-redux-modal';
@@ -20,7 +21,7 @@ export default class TraderTaskbarComponent extends React.Component {
         this.randomize = this.randomize.bind(this);
         this.tableCalled = this.tableCalled.bind(this);
         this.chartCalled = this.chartCalled.bind(this);
-
+        this.handleData=this.handleData.bind(this);
         console.log('Taskbar props - ' ,this.props.users);
     }
 
@@ -96,6 +97,12 @@ export default class TraderTaskbarComponent extends React.Component {
             this.props.fetchOrdersData('http://localhost:8080/orders','post',data);
         }
     }
+    handleData(data){
+        console.log('inside websocket6');
+        console.log(data);
+        // let result = JSON.parse(data);
+          this.props.fetchOrdersData('http://localhost:8080/orders','get');
+    }
 
     render() {
         var p;
@@ -122,7 +129,8 @@ export default class TraderTaskbarComponent extends React.Component {
                         <button onClick={this.chartCalled} className="navButton btn-xs"><img  src={require('./chart.png')}  alt="" /></button>
                     </span>
                 </nav>
-                
+                 <Websocket url='ws://localhost:8080/socket.io/?transport=websocket' 
+                 onMessage={this.handleData}/>
                 {p}
             </div>
         )

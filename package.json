@@ -9,6 +9,7 @@
     "start": "nwb serve-react-app"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "react": "^15.3.2",
     "react-bootstrap-table": "^3.1.6",
     "react-d3-basic": "^1.6.11",
@@ -17,6 +18,7 @@
     "react-redux-modal": "^0.5.2",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
+    "react-websocket": "^1.1.6",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0"
   },
