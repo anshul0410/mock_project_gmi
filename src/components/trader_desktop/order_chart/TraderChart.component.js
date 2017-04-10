@@ -8,9 +8,9 @@ export default class TraderChartComponent extends React.Component {
     render() {
 
         var orderData = [];
-
+        var height = 50;
         if(this.props.orders){
-            console.log(this.props,'props orders');
+            //console.log(this.props,'props orders');
             this.props.orders.map((item, index) => {
             var id = item.id;
             var id = item.id;
@@ -20,9 +20,9 @@ export default class TraderChartComponent extends React.Component {
             var quantity = 1 - quantityExecuted - quantityPlaced;
             orderData.push({ id, quantityExecuted, quantityPlaced, quantity });
             //console.log(quantityExecuted + " " + quantityPlaced + " " + quantity);
-
+            height += 49;
             });
-
+            
         }
         else if(!this.props.orders){
             
@@ -30,8 +30,8 @@ export default class TraderChartComponent extends React.Component {
         //console.log(orderData, 'anshul');
 
 
-        var width = 700,
-            height = 400;
+        var width = 700;
+            
 
         var y = function (d) {
             // console.log(d, 'inside y');
@@ -82,14 +82,9 @@ export default class TraderChartComponent extends React.Component {
             xTickOrient = 'top',
             xTickFormat = d3.format("%"),
             y1 = function (d) {
-                console
-    .log(d.quantity,'y1');
+                console.log(d.quantity,'y1');
                 return d.quantity;
             }
-
-
-
-
         return (
 
             <BarStackHorizontalChart
@@ -115,7 +110,7 @@ export default class TraderChartComponent extends React.Component {
                 data={orderData}
                 chartSeries={chartSeries}
                 width={750}
-                height={350}
+                height={height}
                 showYGrid={showYGrid}
                 // xOrient={xOrient}
                 yScale={yScale}

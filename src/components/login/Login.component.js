@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
+import cookie from 'react-cookie';
 export class LoginComponent extends React.Component{
     constructor(props){
         super(props);
@@ -10,7 +11,6 @@ export class LoginComponent extends React.Component{
         this.props.fetchUsersData('http://localhost:8080/users');
     }
      userLoginFunction(){
-            console.log('dsnjdhn');
             var name=ReactDOM.findDOMNode(this.refs.userSelect).value;
             var selected;
             for (let user of this.props.users){
@@ -19,11 +19,12 @@ export class LoginComponent extends React.Component{
                 }
             } 
             // console.log(this.props);
+            cookie.save('Trader',selected, { path: '/' });
             this.props.loginUser(selected);
     }
     render(){
         // var options=;
-        console.log(this.props,'dsdsad');
+        // console.log(this.props,'dsdsad');
           
         var options= this.props.users.map((user)=> {
             return <option value={user.name} key={user.id}>{user.name}</option>

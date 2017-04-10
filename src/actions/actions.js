@@ -26,26 +26,18 @@ export function usersFetchData(url) {
 
 
 export function ordersFetchData(url, method, data = undefined) {
-    //console.log('Inside action ordersFetchData', method,data);
-    // conso
+    
     return (dispatch) => {
         if (method == 'del') {
-            console.log('inside del action');
+            ('inside del action');
             return axios({
                 url: url,
                 timeout: 20000,
                 method: 'DELETE',
                 responseType: 'json'
-            }).then((response) => {
-                // console.log(url,'delete has been called');
-                // ordersFetchData(url,'get');
-                return response.data;
-            }).then((orders) => {
-                // console.log(url,'delete has been called',response.data);
-                
-                dispatch(ordersFetchDataSuccess(orders))
-
-            }).catch(() => dispatch(ordersFetchData(url,'get')))
+            })
+            .catch(() => console.log('Delete request error'))
+            .then(() => dispatch(ordersFetchData(url,'get')))
         }
         else if (method == 'get') {
             return axios({
@@ -58,7 +50,7 @@ export function ordersFetchData(url, method, data = undefined) {
             }).then((orders) => {
                 setTimeout( () => dispatch(ordersFetchDataSuccess(orders)) , 100)
 
-            }).catch(() => console.log('empty get'));
+            }).catch(() => ('empty get'));
         }
         else {
             return axios({
@@ -72,7 +64,8 @@ export function ordersFetchData(url, method, data = undefined) {
                 return response.data;
             }).then((orders) => {
                 // dispatch(ordersFetchDataSuccess(orders))
-            }).catch(() => console.log('Error post'))
+            })
+            .catch(() => ('Error post'))
             .then(() =>  dispatch(ordersFetchData(url,'get')))
         }
 
@@ -80,7 +73,7 @@ export function ordersFetchData(url, method, data = undefined) {
 }
 
 export function ordersFetchDataSuccess(orders) {
-    console.log('Inside action', orders)
+    ('Inside action', orders)
     return {
         type: 'ORDERS_FETCH_DATA_SUCCESS',
         orders
@@ -114,11 +107,19 @@ export function instrumentsFetchData(url) {
         }).then((instruments) => {
             dispatch(instrumentsFetchDataSuccess(instruments))
 
-        }).catch(()=> console.log('empty instruments'));
+        }).catch(()=> ('empty instruments'));
 
         
     };
 }
+
+export function pushNotification(msg,data){
+    return{
+        type:msg,
+        data
+    }
+}
+
 // export function openDialog(name) {
 //   return {
 //     type: 'OPEN_DIALOG',

@@ -17,17 +17,13 @@ export default class TraderTableComponent extends React.Component {
             name: "Item name 2",
             price: 100
         }];
-        console.log(this.props,'Table Component');
+      
 
         var orders = this.props.orders;
         return (
             <div>
-            <div className="hidden-xs hidden-sm">
-                {/*<BootstrapTable data={products} striped={true} hover={true}>
-                    <TableHeaderColumn dataField="id" isKey={true} dataAlign="center" dataSort={true}>Product ID</TableHeaderColumn>
-                    <TableHeaderColumn dataField="name" dataSort={true}>Product Name</TableHeaderColumn>
-                    <TableHeaderColumn dataField="price" >Product Price</TableHeaderColumn>
-                </BootstrapTable>*/}
+            <div className="hidden-xs">
+                
                 <BootstrapTable  data={orders} striped={true} condensed >
                     <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="creationTime" dataAlign="center"  dataSort={true}>creation Time</TableHeaderColumn>
@@ -42,7 +38,7 @@ export default class TraderTableComponent extends React.Component {
                     <TableHeaderColumn className="tableHeader" dataField="traderId" dataAlign="center" dataSort={true}>Trader</TableHeaderColumn>
                 </BootstrapTable>
             </div>
-                <div className="visible-xs ">
+                <div className="visible-xs">
               
                     <BootstrapTable  data={orders} striped={true} condensed >
                     <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
@@ -54,7 +50,7 @@ export default class TraderTableComponent extends React.Component {
                  </BootstrapTable>
                 </div>
             
-                <div className="visible-sm">
+                <div className="visible-md ">
                
                 <BootstrapTable  data={orders} striped={true} condensed >
                     <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
