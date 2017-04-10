@@ -9,6 +9,7 @@
     "start": "nwb serve-react-app"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "react": "^15.3.2",
     "react-bootstrap-table": "^3.1.6",
     "react-d3-basic": "^1.6.11",
