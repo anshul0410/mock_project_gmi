@@ -14,7 +14,7 @@ export default class TraderHeaderComponent extends React.Component {
         // console.log(this.props, 'pol');
         var Trader= cookie.load('Trader')
         return (
-            <div className="headerTrader col-xs-12">
+            <div className="headerDiv col-xs-12">
                 <header>
                     <nav className="nav nav-pills">
                         <h4 id="headerTitle"><b>Trader Desktop</b>

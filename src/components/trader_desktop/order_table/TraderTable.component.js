@@ -21,10 +21,10 @@ export default class TraderTableComponent extends React.Component {
 
         var orders = this.props.orders;
         return (
-            <div>
-            <div className="hidden-xs">
+            <div className="traderTable">
+                <div className="visible-md visible-lg">
                 
-                <BootstrapTable  data={orders} striped={true} condensed >
+                <BootstrapTable  className="table table-default" data={orders} striped={true} condensed >
                     <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="creationTime" dataAlign="center"  dataSort={true}>creation Time</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>
@@ -37,10 +37,10 @@ export default class TraderTableComponent extends React.Component {
                     <TableHeaderColumn className="tableHeader" dataField="status" dataAlign="center" dataSort={true}>Status</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="traderId" dataAlign="center" dataSort={true}>Trader</TableHeaderColumn>
                 </BootstrapTable>
-            </div>
+              </div>
                 <div className="visible-xs">
               
-                    <BootstrapTable  data={orders} striped={true} condensed >
+                    <BootstrapTable className="table table-default"  data={orders} striped={true} condensed >
                     <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="symbol" dataAlign="center"> Symbol</TableHeaderColumn>
@@ -50,9 +50,9 @@ export default class TraderTableComponent extends React.Component {
                  </BootstrapTable>
                 </div>
             
-                <div className="visible-md ">
+                <div className="visible-sm ">
                
-                <BootstrapTable  data={orders} striped={true} condensed >
+                    <BootstrapTable className="table table-default"  data={orders} striped={true} condensed >
                     <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="creationTime" dataAlign="center"  dataSort={true}>creation Time</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>
@@ -64,8 +64,8 @@ export default class TraderTableComponent extends React.Component {
 
                     <TableHeaderColumn className="tableHeader" dataField="status" dataAlign="center" dataSort={true}>Status</TableHeaderColumn>
                    
-                </BootstrapTable>
-            </div>
+                    </BootstrapTable>
+                </div>
 
             </div>
 

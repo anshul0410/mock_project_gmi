@@ -129,9 +129,9 @@ export default class TraderTaskbarComponent extends React.Component {
             <div>
                 <ReduxModal />
                
-                    <button onClick={this.addModal.bind(this, this.randomize)} className="traderButton btn-xs" >Trade</button>
-                    <button className="traderButton btn-xs" onClick={this.deleteAllTrader}>Delete All</button>
-                    <button className="traderButton btn-xs" onClick={this.refreshTrader}>Refresh</button>
+                    <button onClick={this.addModal.bind(this, this.randomize)} className="traderTaskbarButton btn-xs" >Trade</button>
+                    <button className="traderTaskbarButton btn-xs" onClick={this.deleteAllTrader}>Delete All</button>
+                    <button className="traderTaskbarButton btn-xs" onClick={this.refreshTrader}>Refresh</button>
                     
                     <span className="pull-right">
                         <button onClick={this.tableCalled} className="navButton btn-xs"><img src={require('./table.png')} alt="" /></button>
