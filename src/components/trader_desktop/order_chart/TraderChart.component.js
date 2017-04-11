@@ -9,61 +9,59 @@ export default class TraderChartComponent extends React.Component {
 
         var orderData = [];
         var height = 50;
-        if(this.props.orders){
+        if (this.props.orders) {
             //console.log(this.props,'props orders');
             this.props.orders.map((item, index) => {
-            var id = item.id;
-            var id = item.id;
-            var qplaced = item.quantityPlaced - item.quantityExecuted;
-            var quantityExecuted = (item.quantityExecuted / item.quantity);
-            var quantityPlaced = (qplaced / item.quantity);
-            var quantity = 1 - quantityExecuted - quantityPlaced;
-            orderData.push({ id, quantityExecuted, quantityPlaced, quantity });
-            //console.log(quantityExecuted + " " + quantityPlaced + " " + quantity);
-            height += 49;
+                var id = item.id;
+                var id = item.id;
+                var qplaced = item.quantityPlaced - item.quantityExecuted;
+                var quantityExecuted = (item.quantityExecuted / item.quantity);
+                var quantityPlaced = (qplaced / item.quantity);
+                var quantity = 1 - quantityExecuted - quantityPlaced;
+                orderData.push({ id, quantityExecuted, quantityPlaced, quantity });
+                //console.log(quantityExecuted + " " + quantityPlaced + " " + quantity);
+                height += 49;
             });
-            
-        }
-        else if(!this.props.orders){
-            
+
+        } else if (!this.props.orders) {
+
         }
         //console.log(orderData, 'anshul');
 
 
         var width = 700;
-            
 
-        var y = function (d) {
+
+        var y = function(d) {
             // console.log(d, 'inside y');
             return d.id
         }
-        var x = function (d) {
+        var x = function(d) {
             // console.log(d,'inside x');
 
             return +d;
         }
-        var chartSeries = [
-            {
-                "field": "quantityExecuted",
-                "name": "Executed",
-                "color": "#ff8000"
-            },
-            {
-                "field": "quantityPlaced",
-                "name": "Placed",
-                "color": "#febb68"
-            },
-            {
-                "field": "quantity",
-                "name": "quantity",
-                "color": "#ffefbf"
-            },
+        var chartSeries = [{
+                    "field": "quantityExecuted",
+                    "name": "Executed",
+                    "color": "#ff8000"
+                },
+                {
+                    "field": "quantityPlaced",
+                    "name": "Placed",
+                    "color": "#febb68"
+                },
+                {
+                    "field": "quantity",
+                    "name": "quantity",
+                    "color": "#ffefbf"
+                },
 
 
 
-        ],
+            ],
             //  yScale = 'ordinal',
-          xLabel = "Order Execution Status",
+            xLabel = "Order Execution Status",
             // xTickFormat = d3.format("%"),
             // yLabel = "Frequency",
             showXGrid = false,
@@ -81,47 +79,47 @@ export default class TraderChartComponent extends React.Component {
             xOrient = 'top',
             xTickOrient = 'top',
             xTickFormat = d3.format("%"),
-            y1 = function (d) {
-                console.log(d.quantity,'y1');
+            y1 = function(d) {
+                console.log(d.quantity, 'y1');
                 return d.quantity;
             }
         return (
 
-            <BarStackHorizontalChart
-                //                         title='Order Execution Status'
-                //                         data={orderData}
-                //                         chartSeries={chartSeries}
-                //                         width={750}
-                //                         height={400}
-                //                         yTicks={yTicks}
-                //                         yLabel={yLabel}
-                //                         yScale={yScale}
-                                         xLabel={xLabel}
-                //                         y={y}
-                //                         x={x}
-                // // xRange={xRange}
-                // xDomain={xDomain}
-                // // xAxistickValues={xAxistickValues}
-                // // xTickFormat={xTickFormat}
-                showXGrid={showXGrid}
-                // showYGrid={showYGrid}
-                xTicks={xTicks}
-                title='Order Execution Status'
-                data={orderData}
-                chartSeries={chartSeries}
-                width={750}
-                height={height}
-                showYGrid={showYGrid}
-                // xOrient={xOrient}
-                yScale={yScale}
-                yLabel={yLabel}
-                y={y}
-                y1={y1}
-                x={x}
-                xTickFormat={xTickFormat}
-                // legendClassName={legendClassName}
-                legendPosition={legendPosition}
-                />
+            <
+            BarStackHorizontalChart
+            //                         title='Order Execution Status'
+            //                         data={orderData}
+            //                         chartSeries={chartSeries}
+            //                         width={750}
+            //                         height={400}
+            //                         yTicks={yTicks}
+            //                         yLabel={yLabel}
+            //                         yScale={yScale}
+            xLabel = { xLabel }
+            //                         y={y}
+            //                         x={x}
+            // // xRange={xRange}
+            // xDomain={xDomain}
+            // // xAxistickValues={xAxistickValues}
+            // // xTickFormat={xTickFormat}
+            showXGrid = { showXGrid }
+            // showYGrid={showYGrid}
+            xTicks = { xTicks }
+            title = 'Order Execution Status'
+            data = { orderData }
+            chartSeries = { chartSeries }
+            height = { height }
+            showYGrid = { showYGrid }
+            // xOrient={xOrient}
+            yScale = { yScale }
+            yLabel = { yLabel }
+            y = { y }
+            y1 = { y1 }
+            x = { x }
+            xTickFormat = { xTickFormat }
+            // legendClassName={legendClassName}
+            legendPosition = { legendPosition }
+            />
 
         );
     }
