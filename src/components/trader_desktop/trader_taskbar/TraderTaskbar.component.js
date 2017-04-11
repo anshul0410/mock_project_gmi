@@ -128,15 +128,16 @@ export default class TraderTaskbarComponent extends React.Component {
 
             <div>
                 <ReduxModal />
-                <nav className="nav nav-pills">
-                    <button onClick={this.addModal.bind(this, this.randomize)} className="traderButton btn-sm" >Trade</button>
-                    <button className="traderButton btn-sm" onClick={this.deleteAllTrader}>Delete All</button>
-                    <button className="traderButton btn-sm" onClick={this.refreshTrader}>Refresh</button>
+               
+                    <button onClick={this.addModal.bind(this, this.randomize)} className="traderButton btn-xs" >Trade</button>
+                    <button className="traderButton btn-xs" onClick={this.deleteAllTrader}>Delete All</button>
+                    <button className="traderButton btn-xs" onClick={this.refreshTrader}>Refresh</button>
+                    
                     <span className="pull-right">
                         <button onClick={this.tableCalled} className="navButton btn-xs"><img src={require('./table.png')} alt="" /></button>
                         <button onClick={this.chartCalled} className="navButton btn-xs"><img src={require('./chart.png')} alt="" /></button>
                     </span>
-                </nav>
+               
                 <Websocket url='ws://localhost:8080/socket.io/?transport=websocket'
                     onMessage={this.handleData} />
                 {p}
