@@ -36,7 +36,7 @@ export class LoginComponent extends React.Component{
             <div className="container  row" >
                 <div>
                     <h1 className=""><b>Log In</b></h1>
-                    <div className="col-xs-4">
+                    <div className="col-xs-10 col-sm-4">
                     <select ref="userSelect" className="form-control col-xs-3">
                      {options}
                     </select>
