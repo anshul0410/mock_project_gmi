@@ -134,8 +134,8 @@ export default class TraderTaskbarComponent extends React.Component {
                     <button className="traderTaskbarButton btn-xs" onClick={this.refreshTrader}>Refresh</button>
                     
                     <span className="pull-right">
-                        <button onClick={this.tableCalled} className="navButton btn-xs"><img src={require('./table.png')} alt="" /></button>
-                        <button onClick={this.chartCalled} className="navButton btn-xs"><img src={require('./chart.png')} alt="" /></button>
+                        <button  autofocus="true" onClick={this.tableCalled} className="navButton-black btn-xs"><img class="nav-image-black" src={require('./table.png')} alt="" /></button>
+                        <button onClick={this.chartCalled} className="navButton-black btn-xs"><img class="nav-image-black" src={require('./chart.png')} alt="" /></button>
                     </span>
                
                 <Websocket url='ws://localhost:8080/socket.io/?transport=websocket'

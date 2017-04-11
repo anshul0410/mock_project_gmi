@@ -52,15 +52,26 @@ body {
     background-color: gray;
 }
 
-.navButton {
+.navButton-black {
     height: 25px;
     background-color: black;
     margin: 5px;
 }
 
+.navButton-black:focus {
+    filter:invert(100%);
+}
+
+
+
+.nav-image-black{
+        filter: invert(100%);
+}
+
 #creationTimeId {
     display: inline-block;
 }
+
 .test-legend-class{
     padding-left: 0px;
     display: inline;
@@ -88,4 +99,7 @@ body {
 }
 .react-bs-table-container{
    
+}
+#image-table-toggle{
+        filter: invert(100%);
 }

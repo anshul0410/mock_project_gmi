@@ -99,10 +99,10 @@ export default class TraderChartComponent extends React.Component {
             )
         }
         return (
-            <div className="row chartDiv">
+            <div className="row chartDiv ">
                 <h4 className="text-center">Order Execution Status</h4>
-                <div className="col-xs-8 ">
-                    <div className = "col-xs-10">
+                <div className="col-xs-8  ">
+                    <div className = "col-xs-10  ">
                     <BarStackHorizontalChart
                         showXGrid={showXGrid}
                         width={800}
@@ -122,13 +122,14 @@ export default class TraderChartComponent extends React.Component {
                        
                         
                         </div>
-                        <div className="col-xs-2 ">
+                       
+                        <div className="col-xs-2 col-sm-2">
                             {quantity1}
                      
                         </div>
                 </div>
                 
-                <div className="col-xs-offset-1 col-xs-2 pull-left legendDiv">
+                <div className="col-xs-offset-1 col-xs-2 col-sm-2 pull-left legendDiv">
                     <Legend
                         width={100}
                         height={50}
