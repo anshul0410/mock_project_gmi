@@ -18,7 +18,7 @@ export default class TraderDesktopComponent extends React.Component {
 
     render() {
         return (
-            <div className="headerTrader">
+            <div className="headerTrader row">
                 <TraderHeaderComponent {...this.props} />
                 <TraderTaskbarComponent {...this.props} />
 
