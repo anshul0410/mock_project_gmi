@@ -1,38 +1,38 @@
 {
-    "name": "dummys-guide-to-redux-and-thunk-react",
-    "version": "1.0.0",
-    "description": "A Dummy's Guide to Redux and Thunk in React",
-    "private": true,
-    "scripts": {
-        "build": "nwb build-react-app",
-        "clean": "nwb clean-app",
-        "start": "nwb serve-react-app"
-    },
-    "dependencies": {
-        "axios": "^0.16.1",
-        "react": "^15.3.2",
-        "react-bootstrap-table": "^3.1.6",
-        "react-cookie": "^1.0.5",
-        "react-d3-basic": "^1.6.11",
-        "react-dom": "^15.3.2",
-        "react-redux": "^4.4.5",
-        "react-redux-modal": "^0.5.2",
-        "react-router": "^2.4.0",
-        "react-router-redux": "^4.0.4",
-        "react-websocket": "^1.1.6",
-        "redux": "^3.6.0",
-        "redux-thunk": "^2.1.0"
-    },
-    "devDependencies": {
-        "babel-eslint": "^7.1.0",
-        "eslint": "^3.10.0",
-        "eslint-plugin-react": "^6.6.0",
-        "karma": "^1.6.0",
-        "karma-chrome-launcher": "^2.0.0",
-        "karma-jasmine": "^1.1.0",
-        "nwb": "0.12.x"
-    },
-    "author": "",
-    "license": "MIT",
-    "repository": ""
+  "name": "dummys-guide-to-redux-and-thunk-react",
+  "version": "1.0.0",
+  "description": "A Dummy's Guide to Redux and Thunk in React",
+  "private": true,
+  "scripts": {
+    "start": "nwb serve-react-app",
+    "build": "nwb build-react-app",
+    "clean": "nwb clean-app",
+    "test": "mocha test/**test.js"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "react": "^15.3.2",
+    "react-bootstrap-table": "^3.1.6",
+    "react-cookie": "^1.0.5",
+    "react-d3-basic": "^1.6.11",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-redux-modal": "^0.5.2",
+    "react-router": "^2.4.0",
+    "react-router-redux": "^4.0.4",
+    "react-websocket": "^1.1.6",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.10.0",
+    "eslint-plugin-react": "^6.6.0",
+    "mocha": "^3.2.0",
+    "nwb": "0.12.x"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": ""
 }
