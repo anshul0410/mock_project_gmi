@@ -25,20 +25,37 @@ export default class myModalComopnent extends React.Component {
 	
   render() {
     return (
-      <div>
-        <p>Enter number of trades</p>
-        <input type="text" ref="targetvalue"></input>
+      <div >
+      <form className="form container-fluid">
+       <div >
+       <div className="pull-left">
+       
+        <div>
+        <label for="inputTrade">Enter number of trades</label>
+        </div>
+        <div className="col-xs-12">
+        <input className type="text" id="inputTrade" ref="targetvalue"></input>
+        
+       
+         </div>
+         </div>
+         </div>
+         
+        <div className="col-xs-12 modal-buttonDiv">
         <button
           type="button"
-          onClick={this.createThisModal.bind(this)} className="pull-right">
+          onClick={this.createThisModal.bind(this)} className=" modal-btn pull-right">
           Create
         </button>
         <button
           type="button"
-          onClick={this.removeThisModal.bind(this)} className="pull-right">
+          onClick={this.removeThisModal.bind(this)} className=" modal-btn pull-right">
           Cancel
         </button>
-      </div>
+        </div>
+        
+        </form>
+     </div>
     );
   }
 }

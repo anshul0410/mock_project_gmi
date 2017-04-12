@@ -38,7 +38,7 @@ export default class TraderTaskbarComponent extends React.Component {
             size: 'medium', // large, medium or small,
             closeOnOutsideClick: false, // (optional) Switch to true if you want to close the modal by clicking outside of it,
             hideTitleBar: false, // (optional) Switch to true if do not want the default title bar and close button,
-            hideCloseButton: false // (optional) if you don't wanna show the top right close button
+            hideCloseButton: true // (optional) if you don't wanna show the top right close button
             //.. all what you put in here you will get access in the modal props ;)
         });
     }

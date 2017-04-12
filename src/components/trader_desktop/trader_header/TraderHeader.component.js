@@ -14,13 +14,13 @@ export default class TraderHeaderComponent extends React.Component {
         // console.log(this.props, 'pol');
         var Trader= cookie.load('Trader')
         return (
-            <div className="headerDiv col-xs-12">
+            <div className="headerTrader col-xs-12">
                 <header>
                     <nav className="nav nav-pills">
                         <h4 id="headerTitle" className="col-xs-12"><b>Trader Desktop</b>
                         <span className="pull-right " id="signOut"><Link to="/" onClick={()=>{cookie.remove('Trader', { path: '/' });}}>Sign Out    </Link>
                         </span>
-                        <span className="pull-right" id="headerUserName">   <b>{Trader.name}</b>
+                        <span className="pull-right" id="headerUserName">   <b >{Trader.name}</b>
                          </span>
                          
            
