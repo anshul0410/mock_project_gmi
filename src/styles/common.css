@@ -16,7 +16,7 @@ body {
 .traderDesktop {
     border-bottom: 1px solid black;
     /*width: 100%;*/
-    padding-right: 20px;
+    padding-right: 10px;
     height: 50px;
     font-family: Arial;
 }
@@ -30,12 +30,22 @@ body {
     font-size: 16px;
     font-style: italic;
 }
-
-#headerTitle {
+#headerUserNameXs{
+    font-size: 16px;
+    font-style: italic;
+}
+#headerRow {
     font-size: 16px;
     padding: 5px;
 }
-
+.headerTitle{
+    font-size:16px;
+}
+.headerTitleXs{
+    font-size:10px;
+    display:inline !important;
+    
+}
 #signOut {
     font-size: 12px;
     color: #0000ff;
@@ -83,10 +93,11 @@ body {
     padding-left: 0px;
     display: inline;
     margin-top: 5px;
+    width:100%;
 }
 .legendDiv{
      margin-top: 50px;
-       margin-left: 150px;
+     margin-left: 50px;
      
 }
 .chartDiv{
@@ -131,4 +142,34 @@ body {
     margin-top:10px;
     border-top: 1px solid #c0c0c0;
     padding-top:10px;
+}
+
+.react-d3-basic__bar_stack_horizontal bar{
+        height: 10px;
+}
+
+@media(max-width:480px){
+    .react-d3-core__legend{
+        display: block;
+        width: 100%;
+        margin-left: 110px;
+        float:left;
+    }
+
+    .chartTitle{
+        margin-right:10px; 
+        float: left;
+        display: inline;
+    }
+    .legendDiv{
+        display: inline-block;
+    }
+
+    #headerUserName {
+        font-size: 12px;
+        font-style: italic;
+    }
+    .headerTitle{
+        font-size:12px;
+    }
 }

@@ -2,19 +2,48 @@ import React from 'react';
 import YAxisComponent from './YAxis.component';
 var Legend = require('react-d3-core').Legend;
 
-var Yaxis = require('react-d3-core').Yaxis; 
+var Yaxis = require('react-d3-core').Yaxis;
 var BarStackHorizontalChart = require('react-d3-basic').BarStackHorizontalChart;
+import { WindowResizeListener } from 'react-window-resize-listener';
+
 export default class TraderChartComponent extends React.Component {
     constructor(props) {
         super(props);
+        this.sizeChanged = this.sizeChanged.bind(this);
+        this.width;
+        this.showLegend
+    }
+
+    sizeChanged(windowSize) {
+        console.log('Window height', windowSize.windowHeight);
+        console.log('Window width', windowSize.windowWidth);
+        // this.width = windowSize.windowWidth - 100;
+
+        if (windowSize.windowWidth <= 768 ) {
+            this.width = windowSize.windowWidth;
+            this.showLegend = true;
+        }
+        else if(windowSize.windowWidth < 998){
+            this.width = windowSize.windowWidth-150;
+            if(windowSize.windowWidth <= 991)
+                this.showLegend = true;
+            else
+                this.showLegend = false;
+        }
+        else {
+            this.width = 840;
+            this.showLegend = false;
+        }
+        console.log(this.width);
+        this.setState({});
     }
 
     render() {
-
+        console.log(this.width, 'render');
         var orderData = [];
         var height = 50;
         if (this.props.orders) {
-            //console.log(this.props,'props orders');
+
             this.props.orders.map((item, index) => {
                 var id = item.id;
                 var id = item.id;
@@ -23,26 +52,21 @@ export default class TraderChartComponent extends React.Component {
                 var quantityPlaced = (qplaced / item.quantity);
                 var quantity = 1 - quantityExecuted - quantityPlaced;
                 orderData.push({ id, quantityExecuted, quantityPlaced, quantity });
-                //console.log(quantityExecuted + " " + quantityPlaced + " " + quantity);
                 height += 49;
             });
 
         } else if (!this.props.orders) {
 
         }
-        //console.log(orderData, 'anshul');
 
 
-        var width = 700;
+        var width = this.width;
 
 
         var y = function (d) {
-            // console.log(d, 'inside y');
             return d.id
         }
         var x = function (d) {
-            // console.log(d,'inside x');
-
             return +d;
         }
         var chartSeries = [{
@@ -62,20 +86,17 @@ export default class TraderChartComponent extends React.Component {
         },
 
 
-
         ],
-            //  yScale = 'ordinal',
+
             xLabel = "Order Execution Status",
-            // xTickFormat = d3.format("%"),
-            // yLabel = "Frequency",
+
             showXGrid = false,
-            // showYGrid = false,
-            // // xAxistickValues=d3.range(20, 80, 4),
-            // xDomain = d3.extent(orderData, function(d){ return x(d.quantity)}),
-            // yTicks = [100, "%"],
-            // xRange = [0, xDomain],
-            xTicks = [, "%"],
+            showYGrid = true,
+
+            xTicks = [2, "%"],
+            legendClassNames = "test-legend-class col-xs-offset-8 col-sm-offset-0 col-sm-4 col-xs-4",
             legendClassName = "test-legend-class",
+            
             legendPosition = 'left',
             legendOffset = 1000,
             yScale = "ordinal",
@@ -84,52 +105,62 @@ export default class TraderChartComponent extends React.Component {
             showYGrid = false,
             xOrient = 'top',
             xTickOrient = 'top',
-            showLegend=false,
+            showLegend = this.showLegend,
             xTickFormat = d3.format("%")
-        // y1 = function(d) {
-        //     console.log(d.quantity, 'y1');
-        //     return d.quantity;
-        // }
+
         var quantity1 = [];
-        
-        var i=0;
-        for(let i=this.props.orders.length-1; i>=0; i--){
+
+        var i = 0;
+        for (let i = this.props.orders.length - 1; i >= 0; i--) {
             quantity1.push(
                 <div className='quantityDiv'>{this.props.orders[i].quantity}</div>
             )
         }
+
+        var divStyle = {
+            marginLeft: -36
+        }
+
+    
         return (
+
+
+
             <div className="row chartDiv ">
-                <h4 className="text-center">Order Execution Status</h4>
-                <div className="col-xs-8  ">
-                    <div className = "col-xs-10  ">
-                    <BarStackHorizontalChart
-                        showXGrid={showXGrid}
-                        width={800}
-                        xTicks={xTicks}
-                        title='Order Execution Status'
-                        data={orderData}
-                        chartSeries={chartSeries}
-                        height={height}
-                        showYGrid={showYGrid}
-                        showLegend={showLegend}
-                        yScale={yScale}
-                        yLabel={yLabel}
-                        y={y}
-                        x={x}
-                        xTickFormat={xTickFormat}
-                   />
-                       
-                        
-                        </div>
-                       
-                        <div className="col-xs-2 col-sm-2">
-                            {quantity1}
-                     
-                        </div>
+
+                <div>
+                    <WindowResizeListener onResize={this.sizeChanged} />
                 </div>
-                
-                <div className="col-xs-offset-1 col-xs-2 col-sm-2 pull-left legendDiv">
+                <h4 className="text-center ">Order Execution Status</h4>
+                <div className="col-xs-8 ">
+                    <div className="col-xs-10  " style={divStyle}>
+
+                        <BarStackHorizontalChart
+                            showXGrid={showXGrid}
+                            width={width}
+                            xTicks={xTicks}
+                            title='Order Execution Status'
+                            data={orderData}
+                            chartSeries={chartSeries}
+                            height={height}
+                            showYGrid={showYGrid}
+                            showLegend={showLegend}
+                            yScale={yScale}
+                            yLabel={yLabel}
+                            y={y}
+                            x={x}
+                            xTickFormat={xTickFormat}
+                            showXGrid={true}
+                            // legendClassName={legendClassNames}
+                            />
+
+
+                    </div>
+
+
+                </div>
+
+                <div className="col-xs-offset-1 col-xs-2 col-sm-2 pull-left legendDiv visible-md visible-lg">
                     <Legend
                         width={100}
                         height={50}
