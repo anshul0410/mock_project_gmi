@@ -5,16 +5,21 @@ let should = chai.should();
 chai.use(chaiHttp);
 
 describe('/Login Tests', () => {
-    it('Server is running', (done) => {
+    var userData;
+    it('Server is running and giving data', (done) => {
         chai.request('http://localhost:8080')
-            .get('/')
+            .get('/users')
             .then((res) => {
+                    expect(res.body).to.not.be.a('null');
+                    userData = res.body;
+                    (res.body).forEach(function(userData) {
+                        expect(userData).to.have.property('id');
+                        expect(userData).to.have.property('name');
+                    });
                     done();
                 },
                 (err) => {
-                    done(err);
+                    done(new Error('Server is not running'));
                 })
     });
-
-
 });
