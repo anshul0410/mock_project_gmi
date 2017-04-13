@@ -35,7 +35,7 @@ export default class TraderTableComponent extends React.Component {
                     <TableHeaderColumn className="tableHeader" dataField="quantityExecuted" dataAlign="center" dataSort={true}>Executed</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="limitPrice" dataAlign="center" dataSort={true}>Limit Price</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="priority" dataAlign="center" dataSort={true}>Priority</TableHeaderColumn>
-                    <TableHeaderColumn className="tableHeader statusField" columnClassName='makichut' dataField="status" dataAlign="center" dataSort={true}>Status</TableHeaderColumn>
+                    <TableHeaderColumn className="tableHeader statusField" dataField="status" dataAlign="center" dataSort={true}>Status</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="traderId" dataAlign="center" dataSort={true}>Trader</TableHeaderColumn>
                 </BootstrapTable>
               </div>
