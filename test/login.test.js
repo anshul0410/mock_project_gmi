@@ -7,7 +7,7 @@ chai.use(chaiHttp);
 describe('/Login Tests', () => {
     var userData;
     it('Server is running and giving data', (done) => {
-        chai.request('http://localhost:8080')
+        chai.request('http://mockproject.duckdns.org:8080')
             .get('/users')
             .then((res) => {
                     expect(res.body).to.not.be.a('null');

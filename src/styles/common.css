@@ -149,7 +149,9 @@ body {
 .react-d3-basic__bar_stack_horizontal bar{
         height: 10px;
 }
-
+.statusField{
+    /*background-color:#84e184;*/
+}
 
 @media(max-width:480px){
     .react-d3-core__legend{
@@ -188,7 +190,14 @@ body {
     /*font-weight: 8;*/
     top:0px;
     left:20px;
-}
+    }
+
+    #tableTime{
+        width: 100px;
+    }
+    .statusField{
+        background-color: greenyellow
+    }
 
 }
 @media (min-width:992px) and (max-width:1180px){

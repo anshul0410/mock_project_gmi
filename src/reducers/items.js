@@ -51,50 +51,47 @@ export function currentUser(state = [], action) {
 
 
 export function orders(state = [], action) {
-    // console.log('inside orders reducer');
-    // console.log(action);
+  
     switch (action.type) {
         case 'ORDERS_FETCH_DATA_SUCCESS':
             return action.orders;
 
         case 'orderCreatedEvent':
-            //console.log('Inside reducer orderCreatedEvent')
+          
             return [...state,action.data];
 
         case 'placementCreatedEvent':
-            //console.log('Inside reducer placedCreatedEvent')
+
             var newState =[];
             var id = action.data.orderId;
-            console.log(id);
+            
             for(let o of state){
-                //console.log(o);
+               
                 if(id ===o.id){
-                    //console.log('Found');
-                    //console.log(o,action.data,'asdsd');
+               
                     o.quantityPlaced += action.data.quantityPlaced;
                     o.status = action.data.status;
                 }
                 newState.push(o);
             }
-            //console.log(newState,'asdasd');
+          
         return newState;
 
         case 'executionCreatedEvent':
-            //console.log('Inside reducer executionCreatedEvent')
+
             var newState =[];
             var id = action.data.orderId;
-            //console.log(id);
+    
             for(let o of state){
-                //console.log(o);
+
                 if(id ===o.id){
-                    //console.log('Found');
-                    //console.log(o,action.data,'asdsd');
+              
                     o.quantityExecuted += action.data.quantityExecuted;
                     o.status = action.data.status;
                 }
                 newState.push(o);
             }
-            //console.log(newState,'asdasd');
+      
             return newState;
 
         default:

@@ -8,7 +8,7 @@ export class LoginComponent extends React.Component{
 
     }
     componentDidMount(){
-        this.props.fetchUsersData('http://localhost:8080/users');
+        this.props.fetchUsersData('http://mockproject.duckdns.org:8080/users');
     }
      userLoginFunction(){
             var name=ReactDOM.findDOMNode(this.refs.userSelect).value;
@@ -18,19 +18,18 @@ export class LoginComponent extends React.Component{
                     selected= user;
                 }
             } 
-            // console.log(this.props);
+          
             cookie.save('Trader',selected, { path: '/' });
             this.props.loginUser(selected);
     }
     render(){
-        // var options=;
-        // console.log(this.props,'dsdsad');
+       
           
         var options= this.props.users.map((user)=> {
             return <option value={user.name} key={user.id}>{user.name}</option>
 
         });
-        // userLoginFunction
+      
        
         return (
             <div className="container  row" >

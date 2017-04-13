@@ -15,10 +15,7 @@ export default class TraderChartComponent extends React.Component {
     }
 
     sizeChanged(windowSize) {
-        console.log('Window height', windowSize.windowHeight);
-        console.log('Window width', windowSize.windowWidth);
-        // this.width = windowSize.windowWidth - 100;
-
+       
         if (windowSize.windowWidth <= 768 ) {
             this.width = windowSize.windowWidth-10;
             this.showLegend = true;
@@ -34,12 +31,12 @@ export default class TraderChartComponent extends React.Component {
             this.width = 840;
             this.showLegend = false;
         }
-        console.log(this.width);
+       
         this.setState({});
     }
 
     render() {
-        console.log(this.width, 'render');
+       
         var orderData = [];
         var height = 50;
         if (this.props.orders) {
@@ -151,8 +148,7 @@ export default class TraderChartComponent extends React.Component {
                             x={x}
                             xTickFormat={xTickFormat}
                             showXGrid={true}
-                            // legendClassName={legendClassNames}
-                            // xLabel={xLabel}
+                       
                             />
 
 

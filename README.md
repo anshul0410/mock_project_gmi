@@ -1,9 +1,8 @@
-# A Dummy's Guide to Redux and Thunk in React
+# Trader Application | Mock Project
 
-The demo app for my blog post. It is not an example of writing best-practice markup or React JavaScript, it's just the bare minimum to demonstrate how to use Redux and Redux Thunk.
+An app for Trader. 
 
 ## Prerequisites
-
 [Node.js](http://nodejs.org/) >= v4 must be installed.
 
 ## Installation
@@ -12,7 +11,7 @@ The demo app for my blog post. It is not an example of writing best-practice mar
 
 ## Development Server
 
-- `npm start` will run the app's development server at [http://localhost:3000](http://localhost:3000) with hot module reloading.
+- `npm start` will run the app's development server.
 
 ## Building
 

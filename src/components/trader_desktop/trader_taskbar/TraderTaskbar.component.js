@@ -23,12 +23,12 @@ export default class TraderTaskbarComponent extends React.Component {
         this.tableCalled = this.tableCalled.bind(this);
         this.chartCalled = this.chartCalled.bind(this);
         this.handleData = this.handleData.bind(this);
-        // console.log('Taskbar props - ' ,this.props.users);
+       
     }
 
     componentDidMount() {
-        this.props.fetchUsersData('http://localhost:8080/users');
-        this.props.fetchInstrumentsData('http://localhost:8080/instruments')
+        this.props.fetchUsersData('http://mockproject.duckdns.org:8080/users');
+        this.props.fetchInstrumentsData('http://mockproject.duckdns.org:8080/instruments')
     }
 
     addModal(method) {
@@ -44,15 +44,14 @@ export default class TraderTaskbarComponent extends React.Component {
     }
 
     refreshTrader() {
-        // console.log('refresh', this.props);
-        this.props.fetchOrdersData('http://localhost:8080/orders', 'get');
+        
+        this.props.fetchOrdersData('http://mockproject.duckdns.org:8080/orders', 'get');
     }
 
     deleteAllTrader() {
-        // console.log('delete');
-        this.props.fetchOrdersData('http://localhost:8080/orders', 'del');
-        //this.setstate
-        //   this.props.fetchOrdersData('http://localhost:8080/orders','get');
+       
+        this.props.fetchOrdersData('http://mockproject.duckdns.org:8080/orders', 'del');
+       
     }
 
     tableCalled() {
@@ -65,7 +64,7 @@ export default class TraderTaskbarComponent extends React.Component {
     }
 
     randomize(no) {
-        // console.log('Inside randomize',no);
+       
         var instruments = this.props.instruments;
         var side = ['Buy', 'Sell'];
         var traders = this.props.users;
@@ -77,8 +76,7 @@ export default class TraderTaskbarComponent extends React.Component {
             var sideindex = Math.floor(Math.random() * 2);
             var selectedSide = side[sideindex];
 
-            //var traderindex = Math.floor(Math.random() * 30);
-            //var selectedTraderId = traders[traderindex].id;
+          
             var selectedTraderId = cookie.load('Trader').id
 
             var quantity = Math.floor(Math.random() * 1000) + 1;
@@ -94,9 +92,8 @@ export default class TraderTaskbarComponent extends React.Component {
                 traderId: selectedTraderId
             }
 
-            // console.log('Random Generated Obj - ',data);
-
-            this.props.fetchOrdersData('http://localhost:8080/orders', 'post', data);
+           
+            this.props.fetchOrdersData('http://mockproject.duckdns.org:8080/orders', 'post', data);
         }
     }
     handleData(data) {
@@ -106,10 +103,7 @@ export default class TraderTaskbarComponent extends React.Component {
             this.props.pushNotification(data[0], data[1]);
             
         }
-        //console.log(data);
-
-        // let result = JSON.parse(data);
-        //this.props.fetchOrdersData('http://localhost:8080/orders','get');
+       
     }
 
     render() {
@@ -138,7 +132,7 @@ export default class TraderTaskbarComponent extends React.Component {
                         <button onClick={this.chartCalled} className="navButton-black btn-xs"><img class="nav-image-black" src={require('./chart.png')} alt="" /></button>
                     </span>
                
-                <Websocket url='ws://localhost:8080/socket.io/?transport=websocket'
+                <Websocket url='ws://mockproject.duckdns.org:8080/socket.io/?transport=websocket'
                     onMessage={this.handleData} />
                     <div className="container-fluid">
                 {p}

@@ -5,11 +5,9 @@ import {LoginComponent} from './login/Login.component';
 import  '../styles/common.css';
 import MainComponent from './MainComponent';
 const mapStateToProps = (state) => {
-    // console.log(state,'drtdr')
+   
     return {
-        // items: state.items,
-        // hasErrored: state.itemsHasErrored,
-        // isLoading: state.itemsIsLoading,
+     
         users: state.users,
         currentUser: state.currentUser,
         orders: state.orders,
