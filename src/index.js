@@ -8,7 +8,7 @@ import App from './components/App';
 import {LoginComponent} from './components/login/Login.component';
 
 export const store = configureStore();
-
+console.log('sdd')
 render(
     <Provider store={store}>
         <Router history={browserHistory}>

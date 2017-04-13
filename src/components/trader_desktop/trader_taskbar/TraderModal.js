@@ -8,7 +8,7 @@ import ReduxModal from 'react-redux-modal';
 export default class myModalComopnent extends React.Component {
   constructor(props) { 
     super(props);
-   
+    // console.log('## MODAL DATA AND PROPS:', this.props);
   }
 
   removeThisModal() {
@@ -16,6 +16,7 @@ export default class myModalComopnent extends React.Component {
   }
   createThisModal(){
       var x=ReactDOM.findDOMNode(this.refs.targetvalue).value;
+      // console.log(x);
 
       this.props.randomize(x);
       this.props.removeModal();

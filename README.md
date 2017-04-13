@@ -1,22 +1,7 @@
-# Trader Application | Mock Project
+# GMI React Project 
 
-An app for Trader. 
+## Running
 
-## Prerequisites
-[Node.js](http://nodejs.org/) >= v4 must be installed.
+First `npm install` to grab all the necessary dependencies. 
 
-## Installation
-
-- Running `npm install` in the app's root directory will install everything you need for development.
-
-## Development Server
-
-- `npm start` will run the app's development server.
-
-## Building
-
-- `npm run build` creates a production build by default.
-
-   To create a development build, set the `NODE_ENV` environment variable to `development` while running this command.
-
-- `npm run clean` will delete built resources.
+Then run `npm start` and open <localhost:7777> in your browser.
