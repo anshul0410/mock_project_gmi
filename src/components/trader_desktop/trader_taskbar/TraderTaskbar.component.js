@@ -126,7 +126,7 @@ export default class TraderTaskbarComponent extends React.Component {
         }
         return (
 
-            <div>
+            <div >
                 <ReduxModal />
                
                     <button onClick={this.addModal.bind(this, this.randomize)} className="traderTaskbarButton btn-xs" >Trade</button>
@@ -140,7 +140,9 @@ export default class TraderTaskbarComponent extends React.Component {
                
                 <Websocket url='ws://localhost:8080/socket.io/?transport=websocket'
                     onMessage={this.handleData} />
+                    <div className="container-fluid">
                 {p}
+                </div>
             </div>
         )
     }

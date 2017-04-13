@@ -20,7 +20,7 @@ export default class TraderChartComponent extends React.Component {
         // this.width = windowSize.windowWidth - 100;
 
         if (windowSize.windowWidth <= 768 ) {
-            this.width = windowSize.windowWidth;
+            this.width = windowSize.windowWidth-10;
             this.showLegend = true;
         }
         else if(windowSize.windowWidth < 998){
@@ -131,7 +131,7 @@ export default class TraderChartComponent extends React.Component {
                 <div>
                     <WindowResizeListener onResize={this.sizeChanged} />
                 </div>
-                <h4 className="text-center ">Order Execution Status</h4>
+                <h4 className="text-center chartDivTitle"><b>Order Execution Status</b></h4>
                 <div className="col-xs-8 ">
                     <div className="col-xs-10  " style={divStyle}>
 
@@ -152,6 +152,7 @@ export default class TraderChartComponent extends React.Component {
                             xTickFormat={xTickFormat}
                             showXGrid={true}
                             // legendClassName={legendClassNames}
+                            // xLabel={xLabel}
                             />
 
 
