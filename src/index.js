@@ -7,9 +7,15 @@ import TraderDesktopComponent from './components/trader_desktop/TraderDesktop.co
 import App from './components/App';
 import {LoginComponent} from './components/login/Login.component';
 
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+
 export const store = configureStore();
 console.log('sdd')
 render(
+    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={App}>
@@ -18,7 +24,8 @@ render(
             </Route>
             
     </Router>
- 
-    </Provider>,
-      document.getElementById('app')
+
+    </Provider>
+    </MuiThemeProvider>,
+    document.getElementById('app')
 );

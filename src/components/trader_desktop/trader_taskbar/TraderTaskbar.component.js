@@ -9,13 +9,17 @@ import cookie from 'react-cookie';
 import { modal } from 'react-redux-modal';
 import ReduxModal from 'react-redux-modal';
 
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import TextField from 'material-ui/TextField';
 
 export default class TraderTaskbarComponent extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            presentation: 0
+            presentation: 0,
+            open:false
         }
         this.refreshTrader = this.refreshTrader.bind(this);
         this.deleteAllTrader = this.deleteAllTrader.bind(this);
@@ -23,6 +27,9 @@ export default class TraderTaskbarComponent extends React.Component {
         this.tableCalled = this.tableCalled.bind(this);
         this.chartCalled = this.chartCalled.bind(this);
         this.handleData = this.handleData.bind(this);
+        this.handleOpen = this.handleOpen.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+        this.createTrades = this.createTrades.bind(this);
         // console.log('Taskbar props - ' ,this.props.users);
     }
 
@@ -31,17 +38,6 @@ export default class TraderTaskbarComponent extends React.Component {
         this.props.fetchInstrumentsData('http://localhost:8080/instruments')
     }
 
-    addModal(method) {
-        modal.add(Modal, {
-            randomize: method,
-            title: 'Create Multiple Trades',
-            size: 'medium', // large, medium or small,
-            closeOnOutsideClick: false, // (optional) Switch to true if you want to close the modal by clicking outside of it,
-            hideTitleBar: false, // (optional) Switch to true if do not want the default title bar and close button,
-            hideCloseButton: true // (optional) if you don't wanna show the top right close button
-            //.. all what you put in here you will get access in the modal props ;)
-        });
-    }
 
     refreshTrader() {
         // console.log('refresh', this.props);
@@ -65,7 +61,7 @@ export default class TraderTaskbarComponent extends React.Component {
     }
 
     randomize(no) {
-        // console.log('Inside randomize',no);
+        console.log('Inside randomize',no);
         var instruments = this.props.instruments;
         var side = ['Buy', 'Sell'];
         var traders = this.props.users;
@@ -112,7 +108,37 @@ export default class TraderTaskbarComponent extends React.Component {
         //this.props.fetchOrdersData('http://localhost:8080/orders','get');
     }
 
+    handleOpen(){
+        console.log('inside open')
+        this.setState({open: true});
+    };
+
+    handleClose()  {
+        this.setState({open: false});
+    };
+
+    createTrades(){
+        var x = this.refs.TradeInput.getValue();
+        this.randomize(x);
+        this.handleClose();
+    }
+
     render() {
+
+        const actions = [
+        <FlatButton
+        label="Cancel"
+        primary={true}
+        onClick={this.handleClose.bind(this)}
+        />,
+        <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.createTrades}
+        />,
+    ];
+
         var p;
 
         if (this.state.presentation === 0) {
@@ -127,9 +153,24 @@ export default class TraderTaskbarComponent extends React.Component {
         return (
 
             <div >
-                <ReduxModal />
-               
-                    <button onClick={this.addModal.bind(this, this.randomize)} className="traderTaskbarButton btn-xs" >Trade</button>
+                <Dialog
+                    title="Create Trades"
+                    actions={actions}
+                    modal={false}
+                    open={this.state.open}
+                    onRequestClose={this.handleClose}
+                >
+                    Enter The No Of Trades < br />
+                    <TextField
+                    floatingLabelText="Enter No Of Trades"
+                    width="100px"
+                    fullWidth={true}
+                    ref = "TradeInput"
+                    />
+                    <br />
+                </Dialog>
+            
+                    <button onClick={this.handleOpen} className="traderTaskbarButton btn-xs" >Trade</button>
                     <button className="traderTaskbarButton btn-xs" onClick={this.deleteAllTrader}>Delete All</button>
                     <button className="traderTaskbarButton btn-xs" onClick={this.refreshTrader}>Refresh</button>
                     
@@ -137,7 +178,7 @@ export default class TraderTaskbarComponent extends React.Component {
                         <button  autofocus="true" onClick={this.tableCalled} className="navButton-black btn-xs"><img class="nav-image-black" src={require('./table.png')} alt="" /></button>
                         <button onClick={this.chartCalled} className="navButton-black btn-xs"><img class="nav-image-black" src={require('./chart.png')} alt="" /></button>
                     </span>
-               
+            
                 <Websocket url='ws://localhost:8080/socket.io/?transport=websocket'
                     onMessage={this.handleData} />
                     <div className="container-fluid">

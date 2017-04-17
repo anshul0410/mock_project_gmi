@@ -7,10 +7,22 @@
     background-color: #C0BBC5;
 }
 
-body {
-    background-color: #C0BBC5;
+html{
     height: 100%;
+}
+
+body {
+    font-family: 'Gloria Hallelujah', cursive;
+    height: 100%;
+    width: 100%;
     bottom:0;
+    display: flex;
+    justify-content: center;
+}
+
+#app{
+    height: 100%;
+    width: 100%;
 }
 
 .traderDesktop {
@@ -23,7 +35,7 @@ body {
 
 .headerDiv{
     border-bottom: 1px solid black;
-     height: 35px;
+    height: 35px;
 }
 
 #headerUserName {
@@ -111,14 +123,15 @@ body {
     height:100%;
     min-height: 650px;
     position:relative;
-    overflow:;
 }
 
 .quantityDiv{
     height: 49px;
 }
 .traderTable{
-    background-color: #ffffff;
+    background-color: rgba(255,255,255,0.7);
+    opacity: 0.8;
+    color:rgba(0,0,0,0.7);
 }
 .react-bs-table{
     width:100%;

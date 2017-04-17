@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { ordersFetchData, usersFetchData , loginUser ,instrumentsFetchData , pushNotification} from '../actions/actions';
 import {LoginComponent} from './login/Login.component';
 import  '../styles/common.css';
+import '../styles/login.css';
+
 import MainComponent from './MainComponent';
 const mapStateToProps = (state) => {
-    // console.log(state,'drtdr')
+
     return {
-        // items: state.items,
-        // hasErrored: state.itemsHasErrored,
-        // isLoading: state.itemsIsLoading,
+        
         users: state.users,
         currentUser: state.currentUser,
         orders: state.orders,

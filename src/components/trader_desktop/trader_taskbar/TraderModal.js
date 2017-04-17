@@ -27,20 +27,20 @@ export default class myModalComopnent extends React.Component {
     return (
       <div >
       <form className="form container-fluid">
-       <div >
-       <div className="pull-left">
-       
+      <div >
+      <div className="pull-left">
+      
         <div>
         <label for="inputTrade">Enter number of trades</label>
         </div>
         <div className="col-xs-12">
         <input className type="text" id="inputTrade" ref="targetvalue"></input>
         
-       
-         </div>
-         </div>
-         </div>
-         
+      
+        </div>
+        </div>
+        </div>
+        
         <div className="col-xs-12 modal-buttonDiv">
         <button
           type="button"
@@ -55,7 +55,7 @@ export default class myModalComopnent extends React.Component {
         </div>
         
         </form>
-     </div>
+    </div>
     );
   }
 }
