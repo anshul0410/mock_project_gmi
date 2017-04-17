@@ -24,7 +24,7 @@ export default class TraderTableComponent extends React.Component {
             <div className="traderTable">
                 <div className="visible-md visible-lg">
                 
-                <BootstrapTable  className="table table-default" data={orders} striped={true} condensed >
+                <BootstrapTable  className="table table-default" data={orders} striped={true} condensed pagination>
                     <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="creationTime" dataAlign="center"  dataSort={true}>creation Time</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>
@@ -40,7 +40,7 @@ export default class TraderTableComponent extends React.Component {
             </div>
                 <div className="visible-xs">
             
-                    <BootstrapTable className="table table-default"  data={orders} striped={true} condensed >
+                    <BootstrapTable className="table table-default"  data={orders} striped={true} condensed pagination>
                         <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
                         <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>
                         <TableHeaderColumn className="tableHeader" dataField="symbol" dataAlign="center"> Symbol</TableHeaderColumn>
@@ -51,7 +51,7 @@ export default class TraderTableComponent extends React.Component {
             
                 <div className="visible-sm ">
             
-                    <BootstrapTable className="table table-default"  data={orders} striped={true} condensed >
+                    <BootstrapTable className="table table-default"  data={orders} striped={true} condensed pagination>
                     <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="creationTime" dataAlign="center"  dataSort={true}>creation Time</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>

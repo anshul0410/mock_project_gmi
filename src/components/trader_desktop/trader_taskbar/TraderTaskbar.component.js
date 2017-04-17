@@ -5,7 +5,8 @@ import TraderChartComponent from '../order_chart/TraderChart.component';
 import Modal from './TraderModal';
 import Websocket from 'react-websocket';
 import cookie from 'react-cookie';
-
+import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { modal } from 'react-redux-modal';
 import ReduxModal from 'react-redux-modal';
 
@@ -26,7 +27,7 @@ export default class TraderTaskbarComponent extends React.Component {
         this.randomize = this.randomize.bind(this);
         this.tableCalled = this.tableCalled.bind(this);
         this.chartCalled = this.chartCalled.bind(this);
-        this.handleData = this.handleData.bind(this);
+        // this.handleData = this.handleData.bind(this);
         this.handleOpen = this.handleOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.createTrades = this.createTrades.bind(this);
@@ -65,7 +66,7 @@ export default class TraderTaskbarComponent extends React.Component {
         var instruments = this.props.instruments;
         var side = ['Buy', 'Sell'];
         var traders = this.props.users;
-
+        var len=0;
         for (let i = 0; i < no; i++) {
             var inindex = Math.floor(Math.random() * 30);
             var selectedInstrument = instruments[inindex];
@@ -89,24 +90,37 @@ export default class TraderTaskbarComponent extends React.Component {
                 limitPrice: limitPrice,
                 traderId: selectedTraderId
             }
+             console.log(this.props.orders,'this is the length')
+             if(this.props.orders.length!=0)
+            {
+                 len=this.props.orders[this.props.orders.length-1].id;
+            }
+           
+            var order=this.props.orders[this.props.orders.length];
+            // conssole.log(order.length,'asndsud');
+            len=len+ +i +1;
+            if(len==1){
+                 NotificationManager.info('First order created by ');
+            }
+            NotificationManager.info('Quantity ' + quantity +' of order Id '+ len + ' is initiated by '+ data.traderId);
 
             // console.log('Random Generated Obj - ',data);
 
             this.props.fetchOrdersData('http://localhost:8080/orders', 'post', data);
         }
     }
-    handleData(data) {
-        if (data[0] == "4" && data[1] == "2") {
+    // handleData(data) {
+    //     if (data[0] == "4" && data[1] == "2") {
 
-            data = JSON.parse(data.substring(2, ));
-            this.props.pushNotification(data[0], data[1]);
+    //         data = JSON.parse(data.substring(2, ));
+    //         this.props.pushNotification(data[0], data[1]);
             
-        }
-        //console.log(data);
+    //     }
+    //     //console.log(data);
 
-        // let result = JSON.parse(data);
-        //this.props.fetchOrdersData('http://localhost:8080/orders','get');
-    }
+    //     // let result = JSON.parse(data);
+    //     //this.props.fetchOrdersData('http://localhost:8080/orders','get');
+    // }
 
     handleOpen(){
         console.log('inside open')
@@ -178,9 +192,7 @@ export default class TraderTaskbarComponent extends React.Component {
                         <button  autofocus="true" onClick={this.tableCalled} className="navButton-black btn-xs"><img class="nav-image-black" src={require('./table.png')} alt="" /></button>
                         <button onClick={this.chartCalled} className="navButton-black btn-xs"><img class="nav-image-black" src={require('./chart.png')} alt="" /></button>
                     </span>
-            
-                <Websocket url='ws://localhost:8080/socket.io/?transport=websocket'
-                    onMessage={this.handleData} />
+          
                     <div className="container-fluid">
                 {p}
                 </div>
