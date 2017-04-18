@@ -9,10 +9,15 @@ import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { modal } from 'react-redux-modal';
 import ReduxModal from 'react-redux-modal';
+import * as colors from 'material-ui/styles/colors';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
+import RefreshIndicator from 'material-ui/RefreshIndicator';
+
 
 export default class TraderTaskbarComponent extends React.Component {
     constructor(props) {
@@ -42,7 +47,10 @@ export default class TraderTaskbarComponent extends React.Component {
 
     refreshTrader() {
         // console.log('refresh', this.props);
+        
         this.props.fetchOrdersData('http://localhost:8080/orders', 'get');
+        
+
     }
 
     deleteAllTrader() {
@@ -66,7 +74,9 @@ export default class TraderTaskbarComponent extends React.Component {
         var instruments = this.props.instruments;
         var side = ['Buy', 'Sell'];
         var traders = this.props.users;
-        var len=0;
+        // var len=0;
+            NotificationManager.info(no + ' Trades are initiated ', 'Trade Status', 1500);
+        
         for (let i = 0; i < no; i++) {
             var inindex = Math.floor(Math.random() * 30);
             var selectedInstrument = instruments[inindex];
@@ -90,21 +100,7 @@ export default class TraderTaskbarComponent extends React.Component {
                 limitPrice: limitPrice,
                 traderId: selectedTraderId
             }
-             console.log(this.props.orders,'this is the length')
-             if(this.props.orders.length!=0)
-            {
-                 len=this.props.orders[this.props.orders.length-1].id;
-            }
-           
-            var order=this.props.orders[this.props.orders.length];
-            // conssole.log(order.length,'asndsud');
-            len=len+ +i +1;
-            if(len==1){
-                 NotificationManager.info('First order created by ');
-            }
-            NotificationManager.info('Quantity ' + quantity +' of order Id '+ len + ' is initiated by '+ data.traderId);
-
-            // console.log('Random Generated Obj - ',data);
+          
 
             this.props.fetchOrdersData('http://localhost:8080/orders', 'post', data);
         }
@@ -164,6 +160,7 @@ export default class TraderTaskbarComponent extends React.Component {
         else {
             p = <TraderTableComponent {...this.props} />;
         }
+    
         return (
 
             <div >
@@ -184,17 +181,23 @@ export default class TraderTaskbarComponent extends React.Component {
                     <br />
                 </Dialog>
             
-                    <button onClick={this.handleOpen} className="traderTaskbarButton btn-xs" >Trade</button>
-                    <button className="traderTaskbarButton btn-xs" onClick={this.deleteAllTrader}>Delete All</button>
-                    <button className="traderTaskbarButton btn-xs" onClick={this.refreshTrader}>Refresh</button>
-                    
+                   
+          
+                    <div className="container-fluid ContainerForTable">
+                   
+                    <button onClick={this.handleOpen} className="traderTaskbarButton btn-xs btn-success" >Trade</button>
+                    <button className="traderTaskbarButton btn-xs btn-danger" onClick={this.deleteAllTrader}>Delete All</button>
+                    <button className="traderTaskbarButton btn-xs btn-primary" onClick={this.refreshTrader}>Refresh</button>
+                 
+                
+                   
+          
                     <span className="pull-right">
                         <button onClick={this.tableCalled} className="navButton-black btn-xs"><img  src={require('./table.png')} alt="" /></button>
                         <button onClick={this.chartCalled} className="navButton-black btn-xs"><img src={require('./chart.png')} alt="" /></button>
                     </span>
-          
-                    <div className="container-fluid">
                 {p}
+                
                 </div>
             </div>
         )

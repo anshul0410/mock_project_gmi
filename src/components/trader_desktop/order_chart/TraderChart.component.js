@@ -72,17 +72,17 @@ export default class TraderChartComponent extends React.Component {
         var chartSeries = [{
             "field": "quantityExecuted",
             "name": "Executed",
-            "color": "#ff8000"
+            "color": "rgba(0, 0, 0, 0.7)"
         },
         {
             "field": "quantityPlaced",
             "name": "Placed",
-            "color": "#febb68"
+            "color": "rgba(175, 175, 175, 0.7)"
         },
         {
             "field": "quantity",
             "name": "quantity",
-            "color": "#ffefbf"
+            "color": "rgba(255, 255, 255, 0.7)"
         },
 
 

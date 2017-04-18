@@ -2,6 +2,8 @@ import React from 'react';
 import TraderHeaderComponent from '../trader_header/TraderHeader.component';
 import TraderTaskbarComponent from '../trader_taskbar/TraderTaskbar.component'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import * as colors from 'material-ui/styles/colors';
+import TextField from 'material-ui/TextField';
 // import Moment from 'react-moment';
 
 export default class TraderTableComponent extends React.Component {
@@ -9,11 +11,20 @@ export default class TraderTableComponent extends React.Component {
     constructor(props) {
         super(props);
         this.dateFormat = this.dateFormat.bind(this);
+        this.state={
+            search:''
+        }
+    this.searchOrder=this.searchOrder.bind(this);
+
+}
+ searchOrder(event){
+        this.setState({search:event.target.value});
     }
      dateFormat(input){
         var input2= input.replace('T',' ').replace('Z',).substring(0,19);
         return input2;
     }
+
     render() {
         
     
@@ -25,8 +36,30 @@ export default class TraderTableComponent extends React.Component {
         //      map.set(item.id,{item.id, item.name})   
         //     });
         // }
+          if(this.state.search)
+         {
+          orders=[];
+            this.props.orders.map((item)=>{
+          if(item.status.slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
+            || item.side.slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
+            || item.symbol.slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
+            || item.quantity.toString().slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
+            || item.id.toString().slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0)
+        orders.push(item);
+         })
+        }
+        var styleSearch={
+            inputFieldStyle:{
+                marginLeft:10,
+                color:colors.blue50
+            } ,
+            floatingLabelFocusStyle:{color:colors.blue50},
+            underlineFocusStyle:{borderColor: colors.blue50}
+        }
         return (
+
             <div className="traderTable">
+                 <TextField hintText="search In Table" style={styleSearch.inputFieldStyle}  floatingLabelFocusStyle={styleSearch.floatingLabelFocusStyle} underlineFocusStyle={styleSearch.underlineFocusStyle} onChange={this.searchOrder} floatingLabelText="Search Orders"/><br />
                 <div className="visible-md visible-lg">
                 
                 <BootstrapTable  className="table table-default" data={orders} striped={true} condensed pagination>

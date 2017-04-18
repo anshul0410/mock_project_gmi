@@ -42,44 +42,100 @@ export default class TraderHeaderComponent extends React.Component {
     // }
 
     handlePlacedData(dataPlaced){
-        var dataP=dataPlaced;
-        var date1=new Date();
-        var str=(<p style={{color:"rgba(34, 247, 0, 0.86)"}}>  {date1.toLocaleString()} <br/> Quantity {dataP.quantityPlaced} of Order Id {dataP.orderId} is Placed  </p>);
-                this.menuItems.push(<MenuItem >{str}</MenuItem>);
-                this.allNotifications.push(<MenuItem >{str}</MenuItem>);
+        // var dataP=dataPlaced;
+        // var date1=new Date();
+        // var str=(<p style={{color:"rgba(34, 247, 0, 0.86)"}}>  {date1.toLocaleString()} <br/> Quantity {dataP.quantityPlaced} of Order Id {dataP.orderId} is Placed  </p>);
+        //         this.menuItems.push(<MenuItem >{str}</MenuItem>);
+        //         this.allNotifications.push(<MenuItem >{str}</MenuItem>);
 
-                var strObj='Quantity ' + dataP.quantityPlaced +' of Order Id '+dataP.orderId +' is Placed ' + date1.toLocaleString() ;
-                this.menuObject.push(strObj);
-         if(dataP.status=='Placed' ){
+        //         var strObj='Quantity ' + dataP.quantityPlaced +' of Order Id '+dataP.orderId +' is Placed ' + date1.toLocaleString() ;
+        //         this.menuObject.push(strObj);
+        //  if(dataP.status=='Placed' ){
             
                     
-                // NotificationManager.info('Order Id '+dataP.orderId +' is fully ' + dataP.status,'Trade Status',2000 );
-                 var str2 = (<p style={{color:"rgba(34, 247, 0, 0.86)"}}>{date1.toLocaleString()} <br/> Order Id {dataP.orderId} is fully {dataP.status}</p>);
-                 this.menuItems.push(<MenuItem >{str2}</MenuItem>)
-                 this.allNotifications.push(<MenuItem >{str2}</MenuItem>);
+        //         // NotificationManager.info('Order Id '+dataP.orderId +' is fully ' + dataP.status,'Trade Status',2000 );
+        //          var str2 = (<p style={{color:"rgba(34, 247, 0, 0.86)"}}>{date1.toLocaleString()} <br/> Order Id {dataP.orderId} is fully {dataP.status}</p>);
+        //          this.menuItems.push(<MenuItem >{str2}</MenuItem>)
+        //          this.allNotifications.push(<MenuItem >{str2}</MenuItem>);
 
-                 var strObj2 = 'Order Id '+dataP.orderId +' is fully ' + dataP.status;
-                 this.menuObject.push(strObj2);
-     }
-    }
-    handleExecutedData(dataExecuted){
-        var dataE= dataExecuted;
-        var date2= new Date();
-        var str=(<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date2.toLocaleString()} <br/> Quantity {dataE.quantityExecuted} of Order Id {dataE.orderId} is Executed  </p>);
+        //          var strObj2 = 'Order Id '+dataP.orderId +' is fully ' + dataP.status;
+        //          this.menuObject.push(strObj2);
+    //  }
+    var date= new Date();
+     var d ;
+                d= dataPlaced;
+                
+                d.time = date.toLocaleString().toString();
+                d.completion = '';
+                d.s = 'Placed';
+                d.quantityPlaced = dataPlaced.quantityPlaced.toString();
+                d.quantityExecuted = '';
+                d.orderId = dataPlaced.orderId.toString();
+                var str=(<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date.toLocaleString()} <br/> Quantity {dataPlaced.quantityPlaced} of Order Id {dataPlaced.orderId} is Placed </p>);
+                d.MenuItem = <MenuItem>{str}</MenuItem>
+                
                 this.menuItems.push(<MenuItem >{str}</MenuItem>);
                 this.allNotifications.push(<MenuItem >{str}</MenuItem>);
+                
+                this.menuObject.push(d);
+                if(dataPlaced.status=='Placed'){
 
-                var strObj='Quantity ' + dataE.quantityExecuted +' of Order Id '+dataE.orderId +' is Executed ' + date2.toLocaleString() ;
-                this.menuObject.push(strObj);
-                if(dataE.status=='Executed'){
-                 NotificationManager.success('Order Id '+dataE.orderId +' is fully ' + dataE.status,'Trade Status',2000);
-                 var str2 = (<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date2.toLocaleString()} <br/> Order Id {dataE.orderId} is fully {dataE.status} </p>);
-                 this.menuItems.push(<MenuItem >{str2}</MenuItem>)
-                 this.allNotifications.push(<MenuItem >{str2}</MenuItem>);
+                    NotificationManager.info('Order Id '+dataPlaced.orderId +' is fully ' + dataPlaced.status,'Trade Status',2500 );
+                    var str2 = (<p style={{color:"rgba(34, 247, 0, 0.86)"}}>{date.toLocaleString()} <br/> Order Id {dataPlaced.orderId} is fully {dataPlaced.status}</p>);
+                    
+                    this.menuItems.push(<MenuItem >{str2}</MenuItem>)
+                    this.allNotifications.push(<MenuItem >{str2}</MenuItem>);
+                    d.MenuItem = <MenuItem>{str2}</MenuItem>
+                    d.completion = 'fully';
+                    this.menuObject.push(d);
+                }
+    }
+    handleExecutedData(dataExecuted){
+        // var dataE= dataExecuted;
+        // var date2= new Date();
+        // var str=(<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date2.toLocaleString()} <br/> Quantity {dataE.quantityExecuted} of Order Id {dataE.orderId} is Executed  </p>);
+        //         this.menuItems.push(<MenuItem >{str}</MenuItem>);
+        //         this.allNotifications.push(<MenuItem >{str}</MenuItem>);
 
-                 var strObj2 = 'Order Id '+dataE.orderId +' is fully ' + dataE.status;
-                 this.menuObject.push(strObj2);
-        }
+        //         var strObj='Quantity ' + dataE.quantityExecuted +' of Order Id '+dataE.orderId +' is Executed ' + date2.toLocaleString() ;
+        //         this.menuObject.push(strObj);
+        //         if(dataE.status=='Executed'){
+        //          NotificationManager.success('Order Id '+dataE.orderId +' is fully ' + dataE.status,'Trade Status',1500);
+        //          var str2 = (<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date2.toLocaleString()} <br/> Order Id {dataE.orderId} is fully {dataE.status} </p>);
+        //          this.menuItems.push(<MenuItem >{str2}</MenuItem>)
+        //          this.allNotifications.push(<MenuItem >{str2}</MenuItem>);
+
+        //          var strObj2 = 'Order Id '+dataE.orderId +' is fully ' + dataE.status;
+        //          this.menuObject.push(strObj2);
+        // }
+    var date= new Date();
+        
+         var d ;
+                d= dataExecuted;
+                d.time = date.toLocaleString().toString();
+                d.completion = '';
+                d.s = 'Executed';
+                d.quantityExecuted = dataExecuted.quantityExecuted.toString();
+                d.quantityPlaced = '';
+                d.orderId = dataExecuted.orderId.toString();
+                
+                var str=(<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date.toLocaleString()} <br/> Quantity {dataExecuted.quantityExecuted} of Order Id {dataExecuted.orderId} is Executed </p>);
+                
+                this.menuItems.push(<MenuItem >{str}</MenuItem>);
+                this.allNotifications.push(<MenuItem >{str}</MenuItem>);
+                d.MenuItem = <MenuItem >{str}</MenuItem>;
+                
+                this.menuObject.push(d);
+                if(dataExecuted.status=='Executed'){
+                    NotificationManager.success('Order Id '+dataExecuted.orderId +' is fully ' + dataExecuted.status,'Trade Status',2500);
+                    var str2 = (<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date.toLocaleString()} <br/> Order Id {dataExecuted.orderId} is fully {dataExecuted.status} </p>);
+                    
+                    this.menuItems.push(<MenuItem >{str2}</MenuItem>)
+                    this.allNotifications.push(<MenuItem >{str2}</MenuItem>);
+                    d.MenuItem = <MenuItem >{str2}</MenuItem>;
+                    d.completion = 'fully';
+                    this.menuObject.push(d);
+                }
     }
      handleData(data) {
        
@@ -94,7 +150,7 @@ export default class TraderHeaderComponent extends React.Component {
            
             // var date=new Date();
             if(data[0]=='allOrdersDeletedEvent' ){
-                NotificationManager.error('All Items deleted','Trade Status' ,2000 );
+                NotificationManager.error('All Items deleted','Trade Status' ,1500 );
             }
             if(data[0]=='placementCreatedEvent' ){
                 

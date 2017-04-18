@@ -19,26 +19,55 @@ export default class DrawerComponent extends React.Component {
     }
 
     
+    // searchInNotifications(e){
+    //     this.setState({
+    //         isSearch:true
+    //     })
+    //     //console.log(this.state.searchValue);
+    //     var menuObject = this.props.menuObject;
+    //     //console.log(menuItemsString);
+    //     var x = this.refs.searchValue.getValue();
+    //     //console.log(x,'x - ');
+    //     var y = [];
+    //     for(let mi in menuObject){
+    //         if(menuObject[mi].toLowerCase().indexOf(x) > -1){
+    //             //console.log('found',menuObject[mi],x,menuObject[mi]);
+    //             y.push(this.props.allNotifications[mi]);
+    //         }
+    //     }
+    //     //console.log(y);
+    //     this.setState({
+    //         showMenuItems : y
+    //     });
+    // }
+
     searchInNotifications(e){
         this.setState({
             isSearch:true
         })
-        //console.log(this.state.searchValue);
+        
         var menuObject = this.props.menuObject;
-        //console.log(menuItemsString);
+        
         var x = this.refs.searchValue.getValue();
-        //console.log(x,'x - ');
+        
         var y = [];
-        for(let mi in menuObject){
-            if(menuObject[mi].toLowerCase().indexOf(x) > -1){
-                //console.log('found',menuObject[mi],x,menuObject[mi]);
-                y.push(this.props.allNotifications[mi]);
+        for(let mi of menuObject){
+            
+            if((mi.s.toLowerCase().indexOf(x) > -1) ||
+                (mi.completion.toLowerCase().indexOf(x) > -1) ||
+                (mi.orderId.toLowerCase().indexOf(x) > -1) ||
+                (mi.time.toLowerCase().indexOf(x) > -1) ||
+                (mi.quantityPlaced.toLowerCase().indexOf(x) > -1) ||
+                (mi.quantityExecuted.toLowerCase().indexOf(x) > -1)
+            ){
+                y.push(mi.MenuItem);
             }
         }
-        //console.log(y);
+        
         this.setState({
             showMenuItems : y
         });
+        
     }
 
     render(){
@@ -65,8 +94,6 @@ export default class DrawerComponent extends React.Component {
         return(
             <Drawer className="drawer" docked={false} width={375} open={this.props.open} onRequestChange={this.props.handleClose}  >
                         <MenuItem style={styleCancel} onClick={this.props.handleClose} className="pull-right "><span className="text-danger"> X</span></MenuItem>
-                            
-                        <MenuItem  style={styleCancel} onClick={this.props.handleClose}></MenuItem>
                         <TextField
                         floatingLabelText="Search in Notifications"
                         ref="searchValue"
