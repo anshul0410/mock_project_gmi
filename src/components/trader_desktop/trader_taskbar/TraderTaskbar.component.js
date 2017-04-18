@@ -189,8 +189,8 @@ export default class TraderTaskbarComponent extends React.Component {
                     <button className="traderTaskbarButton btn-xs" onClick={this.refreshTrader}>Refresh</button>
                     
                     <span className="pull-right">
-                        <button  autofocus="true" onClick={this.tableCalled} className="navButton-black btn-xs"><img class="nav-image-black" src={require('./table.png')} alt="" /></button>
-                        <button onClick={this.chartCalled} className="navButton-black btn-xs"><img class="nav-image-black" src={require('./chart.png')} alt="" /></button>
+                        <button onClick={this.tableCalled} className="navButton-black btn-xs"><img  src={require('./table.png')} alt="" /></button>
+                        <button onClick={this.chartCalled} className="navButton-black btn-xs"><img src={require('./chart.png')} alt="" /></button>
                     </span>
           
                     <div className="container-fluid">

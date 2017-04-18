@@ -8,11 +8,14 @@ import Badge from 'material-ui/Badge';
 import IconButton from 'material-ui/IconButton';
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-import Drawer from 'material-ui/Drawer';
+// import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import * as colors from 'material-ui/styles/colors';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FlatButton from 'material-ui/FlatButton';
+import Drawer from './Drawer.component'
+
+
 export default class TraderHeaderComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -24,9 +27,60 @@ export default class TraderHeaderComponent extends React.Component {
         this.handleClose = this.handleClose.bind(this);
         this.handleData=this.handleData.bind(this);
         this.menuItems=[];
+        this.menuObject = [];
+        this.allNotifications = [];
         this.notificationBadge = 0;
+        this.handlePlacedData=this.handlePlacedData.bind(this);
+        this.handleExecutedData=this.handleExecutedData.bind(this);
+        // this.handleNewData=this.handleNewData.bind(this);
+        
     }
 
+
+    // handleNewData(){
+
+    // }
+
+    handlePlacedData(dataPlaced){
+        var dataP=dataPlaced;
+        var date1=new Date();
+        var str=(<p style={{color:"rgba(34, 247, 0, 0.86)"}}>  {date1.toLocaleString()} <br/> Quantity {dataP.quantityPlaced} of Order Id {dataP.orderId} is Placed  </p>);
+                this.menuItems.push(<MenuItem >{str}</MenuItem>);
+                this.allNotifications.push(<MenuItem >{str}</MenuItem>);
+
+                var strObj='Quantity ' + dataP.quantityPlaced +' of Order Id '+dataP.orderId +' is Placed ' + date1.toLocaleString() ;
+                this.menuObject.push(strObj);
+         if(dataP.status=='Placed' ){
+            
+                    
+                // NotificationManager.info('Order Id '+dataP.orderId +' is fully ' + dataP.status,'Trade Status',2000 );
+                 var str2 = (<p style={{color:"rgba(34, 247, 0, 0.86)"}}>{date1.toLocaleString()} <br/> Order Id {dataP.orderId} is fully {dataP.status}</p>);
+                 this.menuItems.push(<MenuItem >{str2}</MenuItem>)
+                 this.allNotifications.push(<MenuItem >{str2}</MenuItem>);
+
+                 var strObj2 = 'Order Id '+dataP.orderId +' is fully ' + dataP.status;
+                 this.menuObject.push(strObj2);
+     }
+    }
+    handleExecutedData(dataExecuted){
+        var dataE= dataExecuted;
+        var date2= new Date();
+        var str=(<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date2.toLocaleString()} <br/> Quantity {dataE.quantityExecuted} of Order Id {dataE.orderId} is Executed  </p>);
+                this.menuItems.push(<MenuItem >{str}</MenuItem>);
+                this.allNotifications.push(<MenuItem >{str}</MenuItem>);
+
+                var strObj='Quantity ' + dataE.quantityExecuted +' of Order Id '+dataE.orderId +' is Executed ' + date2.toLocaleString() ;
+                this.menuObject.push(strObj);
+                if(dataE.status=='Executed'){
+                 NotificationManager.success('Order Id '+dataE.orderId +' is fully ' + dataE.status,'Trade Status',2000);
+                 var str2 = (<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date2.toLocaleString()} <br/> Order Id {dataE.orderId} is fully {dataE.status} </p>);
+                 this.menuItems.push(<MenuItem >{str2}</MenuItem>)
+                 this.allNotifications.push(<MenuItem >{str2}</MenuItem>);
+
+                 var strObj2 = 'Order Id '+dataE.orderId +' is fully ' + dataE.status;
+                 this.menuObject.push(strObj2);
+        }
+    }
      handleData(data) {
        
         if (data[0] == "4" && data[1] == "2") {
@@ -35,45 +89,25 @@ export default class TraderHeaderComponent extends React.Component {
             
             this.props.pushNotification(data[0], data[1]);
             // console.log(data[0]);   
-            console.log(data,'search delete condition');
+            //console.log(data,'search delete condition');
             // NotificationManager.info(data[1].status+ 'Order Id '+data[1].orderId +' is initiated '  ,'Trade Status',2500 );
            
-            var date=new Date();
+            // var date=new Date();
             if(data[0]=='allOrdersDeletedEvent' ){
-                NotificationManager.error('All Items deleted','Trade Status' ,2500 );
+                NotificationManager.error('All Items deleted','Trade Status' ,2000 );
             }
             if(data[0]=='placementCreatedEvent' ){
-                // if(data[1].status=='New'){
-                // NotificationManager.info(data[1].status+ 'Order Id '+data[1].orderId +' is initiated '  ,'Trade Status',2500 );
-                // }
-            // console.log(date.getDate(),'date is here');
                 
-                 var str=(<p style={{color:"rgba(34, 247, 0, 0.86)"}}>  {date.toLocaleString()} <br/> Quantity {data[1].quantityPlaced} of Order Id {data[1].orderId} is Placed  </p>);
-
-                 //var str='Quantity ' + data[1].quantityPlaced +' of Order Id '+data[1].orderId +' is Placed ' + date.toLocaleString() ;
-                 //var p = (<p>Hello {data[1].orderId}<br /> {data[1].status}</p>)
-                this.menuItems.push(<MenuItem >{str}</MenuItem>);
-                if(data[1].status=='Placed' ){
-            // console.log(date.getDate(),'date is here inside if');
-                    
-                 NotificationManager.info('Order Id '+data[1].orderId +' is fully ' + data[1].status,'Trade Status',2500 );
-                 var str2 = (<p style={{color:"rgba(34, 247, 0, 0.86)"}}>{date.toLocaleString()} <br/> Order Id {data[1].orderId} is fully {data[1].status}</p>);
-                 this.menuItems.push(<MenuItem >{str2}</MenuItem>)
-                }
+                this.handlePlacedData(data[1]);
             }
+            
              if(data[0]=='executionCreatedEvent'){
-                 var str=(<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date.toLocaleString()} <br/> Quantity {data[1].quantityExecuted} of Order Id {data[1].orderId} is Executed  </p>);
-                this.menuItems.push(<MenuItem >{str}</MenuItem>);
-                if(data[1].status=='Executed'){
-                 NotificationManager.success('Order Id '+data[1].orderId +' is fully ' + data[1].status,'Trade Status',2500);
-                 
-                 console.log(date.getDate())
-                 var str2 = (<p style={{color:"rgba(34, 247, 0, 0.86)"}}> {date.toLocaleString()} <br/> Order Id {data[1].orderId} is fully {data[1].status} </p>);
-                 this.menuItems.push(<MenuItem >{str2}</MenuItem>)
+                 this.handleExecutedData(data[1]);
                 }
             }
+
         }
-    }
+    
 
       handleOpen() {
         // console.log('insede handle OPEN');
@@ -84,12 +118,12 @@ export default class TraderHeaderComponent extends React.Component {
     }
 
     handleClose() {
-        console.log('inside handle close');
+       // console.log('inside handle close');
      this.setState({open: false});
      this.notificationBadge = 0;
      
     //  console.log('inside if ')
-     this.menuItems=[]
+     this.menuItems=[];
     }
 
     signOut() {
@@ -126,10 +160,11 @@ export default class TraderHeaderComponent extends React.Component {
         }
         var styleCancel={
             
-            backgroundColor:colors.grey300
+            backgroundColor:'rgba(255,255,255,0)'
         }
 
         this.notificationBadge = this.menuItems.length;
+        
         return (
             <div className="headerTrader col-xs-12">
                 <header>
@@ -153,13 +188,17 @@ export default class TraderHeaderComponent extends React.Component {
     
                         </h4>
                     </nav>
-                    <Drawer className="drawer" docked={false} width={375} open={this.state.open} onRequestChange={this.handleClose}  >
+                    {/*<Drawer className="drawer" docked={false} width={375} open={this.state.open} onRequestChange={this.handleClose}  >
                         <MenuItem style={styleCancel} onClick={this.handleClose} className="pull-right"> X</MenuItem>
+                        <MenuItem style={styleCancel} onClick={this.handleClose}> </MenuItem>
+                        
                             
-                        <MenuItem  style={styleClose} onClick={this.handleClose}>Close</MenuItem>
+                        
                             
-                         {this.menuItems}
+                         {allNotificationsdisplay}
                    </Drawer>
+                   */}
+                   <Drawer open={this.state.open} allNotifications={this.allNotifications} handleClose={this.handleClose} menuObject={this.menuObject}></Drawer>
 
                 <Websocket url='ws://localhost:8080/socket.io/?transport=websocket'
                     onMessage={this.handleData}  reconnect={true}/>

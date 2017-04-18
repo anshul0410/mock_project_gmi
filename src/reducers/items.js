@@ -65,7 +65,7 @@ export function orders(state = [], action) {
             //console.log('Inside reducer placedCreatedEvent')
             var newState =[];
             var id = action.data.orderId;
-            console.log(id);
+            //console.log(id);
             for(let o of state){
                 //console.log(o);
                 if(id ===o.id){

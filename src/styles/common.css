@@ -112,6 +112,8 @@ body {
     display: inline;
     margin-top: 5px;
     width:100%;
+    background-color:rgba(247, 166, 166, 0.39);
+    
 }
 .legendDiv{
      margin-top: 50px;
@@ -119,10 +121,11 @@ body {
      
 }
 .chartDiv{
-    background-color: #ffffff;
+    background-color:rgba(247, 166, 166, 0.39);
     height:100%;
     min-height: 650px;
     position:relative;
+    
 }
 
 .quantityDiv{
@@ -284,6 +287,10 @@ body {
   content: "\f057";
 }
 
+.legend {
+    background-color:rgba(247, 166, 166, 0) !important;
+    
+}
 
 
 
@@ -316,6 +323,7 @@ body {
     .legend{
         width:110px !important;
        margin-left:100px;
+       
     }
 
     .chartDivTitle{

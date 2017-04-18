@@ -94,7 +94,7 @@ export default class TraderChartComponent extends React.Component {
             showYGrid = true,
 
             xTicks = [2, "%"],
-            legendClassNames = "test-legend-class col-xs-offset-8 col-sm-offset-0 col-sm-4 col-xs-4",
+            legendClassNames = "legendClass",
             legendClassName = "test-legend-class",
             
             legendPosition = 'left',
@@ -151,7 +151,7 @@ export default class TraderChartComponent extends React.Component {
                             x={x}
                             xTickFormat={xTickFormat}
                             showXGrid={true}
-                            // legendClassName={legendClassNames}
+                            legendClassName={legendClassNames}
                             // xLabel={xLabel}
                             />
 
