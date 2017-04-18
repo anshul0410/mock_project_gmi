@@ -314,7 +314,7 @@ body {
     }
 
     .legend{
-        width:100px !important;
+        width:110px !important;
        margin-left:100px;
     }
 
@@ -330,7 +330,7 @@ body {
 }
 @media (min-width:992px) and (max-width:1180px){
     .legend{
-        width:100px !important;
+        width:120px !important;
        margin-left:0px;
     }
       .legendDiv{
