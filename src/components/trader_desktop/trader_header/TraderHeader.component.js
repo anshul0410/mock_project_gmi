@@ -23,7 +23,8 @@ export default class TraderHeaderComponent extends React.Component {
          this.handleOpen = this.handleOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleData=this.handleData.bind(this);
-        this.menuItems=[]; 
+        this.menuItems=[];
+        this.notificationBadge = 0;
     }
 
      handleData(data) {
@@ -31,11 +32,16 @@ export default class TraderHeaderComponent extends React.Component {
         if (data[0] == "4" && data[1] == "2") {
 
             data = JSON.parse(data.substring(2, ));
-           
+            
             this.props.pushNotification(data[0], data[1]);
             // console.log(data[0]);   
+            console.log(data,'search delete condition');
             // NotificationManager.info(data[1].status+ 'Order Id '+data[1].orderId +' is initiated '  ,'Trade Status',2500 );
+           
             var date=new Date();
+            if(data[0]=='allOrdersDeletedEvent' ){
+                NotificationManager.error('All Items deleted','Trade Status' ,2500 );
+            }
             if(data[0]=='placementCreatedEvent' ){
                 // if(data[1].status=='New'){
                 // NotificationManager.info(data[1].status+ 'Order Id '+data[1].orderId +' is initiated '  ,'Trade Status',2500 );
@@ -80,9 +86,10 @@ export default class TraderHeaderComponent extends React.Component {
     handleClose() {
         console.log('inside handle close');
      this.setState({open: false});
-     for(let i=0;i<this.menuItems.length;i++)
+     this.notificationBadge = 0;
+     
     //  console.log('inside if ')
-     this.menuItems.pop();
+     this.menuItems=[]
     }
 
     signOut() {
@@ -121,6 +128,8 @@ export default class TraderHeaderComponent extends React.Component {
             
             backgroundColor:colors.grey300
         }
+
+        this.notificationBadge = this.menuItems.length;
         return (
             <div className="headerTrader col-xs-12">
                 <header>
@@ -132,7 +141,7 @@ export default class TraderHeaderComponent extends React.Component {
                             </span>
                             <span className="pull-right notificationBadge" >
                             <Badge style={styleBadge}
-                                badgeContent={this.menuItems.length}
+                                badgeContent={ this.notificationBadge}
                                 secondary={true}
                                 badgeStyle={{top: 15, right: 2}}
                             >

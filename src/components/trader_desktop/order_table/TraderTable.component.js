@@ -2,31 +2,36 @@ import React from 'react';
 import TraderHeaderComponent from '../trader_header/TraderHeader.component';
 import TraderTaskbarComponent from '../trader_taskbar/TraderTaskbar.component'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+// import Moment from 'react-moment';
+
 export default class TraderTableComponent extends React.Component {
 
     constructor(props) {
         super(props);
+        this.dateFormat = this.dateFormat.bind(this);
+    }
+     dateFormat(input){
+        var input2= input.replace('T',' ').replace('Z',).substring(0,19);
+        return input2;
     }
     render() {
-        var products = [{
-            id: 1,
-            name: "Item name 1",
-            price: 100
-        }, {
-            id: 2,
-            name: "Item name 2",
-            price: 100
-        }];
+        
     
 
         var orders = this.props.orders;
+        // var map= new Map();
+        // if(orders){
+        //     orders.forEach((item)=> {
+        //      map.set(item.id,{item.id, item.name})   
+        //     });
+        // }
         return (
             <div className="traderTable">
                 <div className="visible-md visible-lg">
                 
                 <BootstrapTable  className="table table-default" data={orders} striped={true} condensed pagination>
                     <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
-                    <TableHeaderColumn className="tableHeader" dataField="creationTime" dataAlign="center"  dataSort={true}>creation Time</TableHeaderColumn>
+                    <TableHeaderColumn className="tableHeader" width="200px" dataField="creationTime" dataFormat={this.dateFormat} dataAlign="center" dataSort={true}>creation Time</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="symbol" dataAlign="center"> Symbol</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader " dataField="quantity" dataAlign="center" dataSort={true}>Quantity</TableHeaderColumn>

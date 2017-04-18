@@ -5,6 +5,7 @@ body{
     
     background-image: url(https://newevolutiondesigns.com/images/freebies/city-wallpaper-18.jpg);
 	background-size: cover;
+	background-repeat: no-repeat;
     
 }
 *,:after,:before{box-sizing:border-box}
@@ -175,4 +176,9 @@ sign-in-htm >hr{
 .foot-lnk{
     color: white;
 	text-align:center;
+}
+@media(max-width:768px){
+    body{
+        background-size: inherit;
+    }
 }
