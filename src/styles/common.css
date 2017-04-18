@@ -7,7 +7,7 @@
     background-color: #C0BBC5;
 }
 
-html{
+html {
     height: 100%;
 }
 
@@ -15,12 +15,12 @@ body {
     font-family: 'Gloria Hallelujah', cursive;
     height: 100%;
     width: 100%;
-    bottom:0;
+    bottom: 0;
     display: flex;
     justify-content: center;
 }
 
-#app{
+#app {
     height: 100%;
     width: 100%;
 }
@@ -33,7 +33,7 @@ body {
     font-family: Arial;
 }
 
-.headerDiv{
+.headerDiv {
     border-bottom: 1px solid black;
     height: 35px;
 }
@@ -42,22 +42,26 @@ body {
     font-size: 16px;
     font-style: italic;
 }
-#headerUserNameXs{
+
+#headerUserNameXs {
     font-size: 16px;
     font-style: italic;
 }
+
 #headerRow {
     font-size: 16px;
     padding: 5px;
 }
-.headerTitle{
-    font-size:16px;
+
+.headerTitle {
+    font-size: 16px;
 }
-.headerTitleXs{
-    font-size:10px;
-    display:inline !important;
-    
+
+.headerTitleXs {
+    font-size: 10px;
+    display: inline !important;
 }
+
 #signOut {
     font-size: 12px;
     color: #0000ff;
@@ -81,260 +85,270 @@ body {
 
 .navButton {
     height: 25px;
-      background-color: black;
-      margin: 5px;
-  }
+    background-color: black;
+    margin: 5px;
+}
 
 .navButton-black {
     height: 25px;
     background-color: black;
     margin: 5px;
-    margin-left:-7px;
-    margin-right:15px;
+    margin-left: -7px;
+    margin-right: 15px;
 }
 
 .navButton-black:focus {
-    filter:invert(100%);
+    filter: invert(100%);
 }
 
-
-
-.nav-image-black{
-        filter: invert(100%);
+.nav-image-black {
+    filter: invert(100%);
 }
 
 #creationTimeId {
     display: inline-block;
 }
 
-.test-legend-class{
+.test-legend-class {
     padding-left: 0px;
     display: inline;
     margin-top: 5px;
-    width:100%;
-}
-.legendDiv{
-     margin-top: 50px;
-     margin-left: 50px;
-     
-}
-.chartDiv{
-    background-color: #ffffff;
-    height:100%;
-    min-height: 650px;
-    position:relative;
+    width: 100%;
 }
 
-.quantityDiv{
+.legendDiv {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.chartDiv {
+    background-color: #ffffff;
+    height: 100%;
+    min-height: 650px;
+    position: relative;
+}
+
+.chart:hover svg {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+
+svg {
+    transition: all 0.5s;
+}
+
+.quantityDiv {
     height: 49px;
 }
-.traderTable{
-    background-color: rgba(255,255,255,0.7);
+
+.traderTable {
+    background-color: rgba(255, 255, 255, 0.7);
     opacity: 0.8;
-    color:rgba(0,0,0,0.7);
+    color: rgba(0, 0, 0, 0.7);
 }
-.react-bs-table{
-    width:100%;
+
+.react-bs-table {
+    width: 100%;
 }
-.react-bs-table-container{
-   margin-left:-10px
+
+.react-bs-table-container {
+    margin-left: -10px
 }
-#image-table-toggle{
-        filter: invert(100%);
+
+#image-table-toggle {
+    filter: invert(100%);
 }
+
 .react-redux-modal .rrm-holder .scroll {
     /*width: 80%;*/
 }
 
 .react-redux-modal .rrm-holder .scroll .rrm-content.m-medium {
-  width: 100%;
-  max-width: 500px;
-}
-.react-redux-modal .rrm-holder .scroll .rrm-content .rrm-title .rr-title-actions {
-  width: 0px;
-  height: 100%;
-  text-align: center;
-  float: left;
-}
-.modal-btn{
-    margin:5px;
-}
-.modal-buttonDiv{
-    margin-top:10px;
-    border-top: 1px solid #c0c0c0;
-    padding-top:10px;
+    width: 100%;
+    max-width: 500px;
 }
 
-.react-d3-basic__bar_stack_horizontal bar{
-        height: 10px;
+.react-redux-modal .rrm-holder .scroll .rrm-content .rrm-title .rr-title-actions {
+    width: 0px;
+    height: 100%;
+    text-align: center;
+    float: left;
 }
+
+.modal-btn {
+    margin: 5px;
+}
+
+.modal-buttonDiv {
+    margin-top: 10px;
+    border-top: 1px solid #c0c0c0;
+    padding-top: 10px;
+}
+
+.react-d3-basic__bar_stack_horizontal bar {
+    height: 10px;
+}
+
 
 /* notification */
 
-.dropdown-toggle{
-        margin-left: 18px;
+.dropdown-toggle {
+    margin-left: 18px;
     margin-top: 22px;
 }
 
 .notification-container {
-  box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 999999;
-  width: 320px;
-  padding: 0 15px;
-  max-height: calc(100% - 30px);
-  overflow-x: hidden;
-  overflow-y: auto;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999999;
+    width: 320px;
+    padding: 0 15px;
+    max-height: calc(100% - 30px);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .notification {
-  box-sizing: border-box;
-  padding: 15px 15px 15px 58px;
-  border-radius: 2px;
-  color: #fff;
-  background-color: #ccc;
-  box-shadow: 0 0 12px #999;
-  cursor: pointer;
-  font-size: 1em;
-  line-height: 1.2em;
-  position: relative;
-  opacity: 0.9;
-  margin-top: 15px;
+    box-sizing: border-box;
+    padding: 15px 15px 15px 58px;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #ccc;
+    box-shadow: 0 0 12px #999;
+    cursor: pointer;
+    font-size: 1em;
+    line-height: 1.2em;
+    position: relative;
+    opacity: 0.9;
+    margin-top: 15px;
 }
 
 .notification .title {
-  font-size: 1em;
-  line-height: 1.2em;
-  font-weight: bold;
-  margin: 0 0 5px 0;
+    font-size: 1em;
+    line-height: 1.2em;
+    font-weight: bold;
+    margin: 0 0 5px 0;
 }
 
-.notification:hover, .notification:focus {
-  opacity: 1;
+.notification:hover,
+.notification:focus {
+    opacity: 1;
 }
 
 .notification-enter {
-  visibility: hidden;
-  transform: translate3d(100%, 0, 0);
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
 }
 
 .notification-enter.notification-enter-active {
-  visibility: visible;
-  transform: translate3d(0, 0, 0);
-  transition: all 0.4s;
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.4s;
 }
 
 .notification-leave {
-  visibility: visible;
-  transform: translate3d(0, 0, 0);
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
 }
 
 .notification-leave.notification-leave-active {
-  visibility: hidden;
-  transform: translate3d(100%, 0, 0);
-  transition: all 0.4s;
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+    transition: all 0.4s;
 }
 
 .notification:before {
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  margin-top: -14px;
-  display: block;
-  font-family: 'Notification';
-  width: 28px;
-  height: 28px;
-  font-size: 28px;
-  text-align: center;
-  line-height: 28px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    margin-top: -14px;
+    display: block;
+    font-family: 'Notification';
+    width: 28px;
+    height: 28px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 28px;
 }
 
 .notification-info {
-  background-color: #2f96b4;
+    background-color: #2f96b4;
 }
 
 .notification-info:before {
-  content: "\f05a";
+    content: "\f05a";
 }
 
-
 .notification-success {
-  background-color: #51a351;
+    background-color: #51a351;
 }
 
 .notification-success:before {
-  content: "\f058";
+    content: "\f058";
 }
 
 .notification-warning {
-  background-color: #f89406;
+    background-color: #f89406;
 }
 
 .notification-warning:before {
-  content: "\f06a";
+    content: "\f06a";
 }
 
 .notification-error {
-  background-color: #bd362f;
+    background-color: #bd362f;
 }
 
 .notification-error:before {
-  content: "\f057";
+    content: "\f057";
 }
 
-
-
-
-
-@media(max-width:480px){
-    .react-d3-core__legend{
+@media(max-width:480px) {
+    .react-d3-core__legend {
         display: inline;
         width: 100%;
         margin-left: 110px;
-        float:left;
+        float: left;
     }
-
-    .chartTitle{
-        margin-right:10px; 
+    .chartTitle {
+        margin-right: 10px;
         float: left;
         display: inline;
     }
-    .legendDiv{
+    .legendDiv {
         display: inline-block;
     }
-
     #headerUserName {
         font-size: 12px;
         font-style: italic;
     }
-    .headerTitle{
-        font-size:12px;
+    .headerTitle {
+        font-size: 12px;
     }
-
-    .legend{
-        width:100px !important;
-       margin-left:100px;
+    .legend {
+        width: 100px !important;
+        margin-left: 100px;
     }
-
-    .chartDivTitle{
-    position:absolute;
-
-    font-size: 14px;
-    /*font-weight: 8;*/
-    top:0px;
-    left:20px;
+    .chartDivTitle {
+        position: absolute;
+        font-size: 14px;
+        /*font-weight: 8;*/
+        top: 0px;
+        left: 20px;
+    }
 }
 
-}
-@media (min-width:992px) and (max-width:1180px){
-    .legend{
-        width:100px !important;
-       margin-left:0px;
+@media (min-width:992px) and (max-width:1180px) {
+    .legend {
+        width: 100px !important;
+        margin-left: 0px;
     }
-      .legendDiv{
+    .legendDiv {
         display: inline-block;
-        margin-left:120px;
+        margin-left: 120px;
     }
 }
