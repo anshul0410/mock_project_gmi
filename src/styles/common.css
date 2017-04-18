@@ -1,3 +1,4 @@
+
 #loginButton {
     background-color: #000000;
     color: #ffffff;
@@ -28,6 +29,7 @@ body {
 .traderDesktop {
     border-bottom: 1px solid black;
     /*width: 100%;*/
+    
     padding-right: 10px;
     height: 50px;
     font-family: Arial;
@@ -291,7 +293,17 @@ body {
     background-color:rgba(247, 166, 166, 0) !important;
     
 }
-
+    
+        .chart:hover svg {
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            transition: all 0.5s;
+        }
+        
+        svg {
+            transition: all 0.5s;
+        }
 
 
 
@@ -331,7 +343,7 @@ body {
 
     font-size: 14px;
     /*font-weight: 8;*/
-    top:0px;
+   top:0px;
     left:20px;
 }
 

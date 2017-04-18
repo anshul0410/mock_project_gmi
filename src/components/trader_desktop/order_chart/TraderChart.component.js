@@ -133,7 +133,7 @@ export default class TraderChartComponent extends React.Component {
                 </div>
                 <h4 className="text-center chartDivTitle"><b>Order Execution Status</b></h4>
                 <div className="col-xs-8 ">
-                    <div className="col-xs-10  " style={divStyle}>
+                    <div className="col-xs-10 chart" style={divStyle}>
 
                         <BarStackHorizontalChart
                             showXGrid={showXGrid}
