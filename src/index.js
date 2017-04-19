@@ -3,9 +3,9 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from "react-router";
 import configureStore from './store/configureStore';
-import TraderDesktopComponent from './components/trader_desktop/TraderDesktop.component'
-import App from './components/App';
-import {LoginComponent} from './components/login/Login.component';
+import TraderDesktopComponent from './components/TraderDesktop/TraderDesktop.component'
+import App from './components/app';
+import {LoginComponent} from './components/Login/Login.component';
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

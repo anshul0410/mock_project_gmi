@@ -1,6 +1,6 @@
 import React from 'react';
-import TraderHeaderComponent from '../trader_header/TraderHeader.component';
-import TraderTaskbarComponent from '../trader_taskbar/TraderTaskbar.component'
+// import TraderHeaderComponent from '../TraderHeader/TraderHeader.component';
+import TraderTaskbarComponent from '../TraderTaskbar/TraderTaskbar.component'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import * as colors from 'material-ui/styles/colors';
 import TextField from 'material-ui/TextField';

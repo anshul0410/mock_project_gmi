@@ -1,8 +1,8 @@
 
 import React from 'react';
-import TraderHeaderComponent from './trader_header/TraderHeader.component';
-import TraderTaskbarComponent from './trader_taskbar/TraderTaskbar.component';
-import TraderTableComponent from './order_table/TraderTable.component';
+import TraderHeaderComponent from '../Common/TraderHeader/TraderHeader.component';
+import TraderTaskbarComponent from './TraderTaskbar/TraderTaskbar.component';
+import TraderTableComponent from './OrderTable/TraderTable.component';
 import * as firebase from 'firebase';
 import CircularProgress from 'material-ui/CircularProgress';
 
@@ -38,7 +38,7 @@ export default class TraderDesktopComponent extends React.Component {
 
 
     render() {
-        console.log(this.isLoggedIn)
+       // console.log(this.isLoggedIn)
         if (this.isLoggedIn) {
             // User is signed in.
             return (
