@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TraderTableComponent from '../order_table/TraderTable.component';
-import TraderChartComponent from '../order_chart/TraderChart.component';
-import Modal from './TraderModal';
+import TraderTableComponent from '../OrderTable/TraderTable.component';
+import TraderChartComponent from '../orderChart/TraderChart.component';
+import Modal from './TraderModal.component';
 import Websocket from 'react-websocket';
 import cookie from 'react-cookie';
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
@@ -88,7 +88,7 @@ export default class TraderTaskbarComponent extends React.Component {
             //var selectedTraderId = traders[traderindex].id;
             var selectedTraderId = cookie.load('Trader').id
 
-            var quantity = Math.floor(Math.random() * 1000) + 1;
+            var quantity = Math.floor(Math.random() * 100) + 1;
 
             var limitPrice = Math.floor(selectedInstrument.lastTrade);
 
@@ -193,8 +193,8 @@ export default class TraderTaskbarComponent extends React.Component {
                    
           
                     <span className="pull-right">
-                        <button onClick={this.tableCalled} className="navButton-black btn-xs"><img  src={require('./table.png')} alt="" /></button>
-                        <button onClick={this.chartCalled} className="navButton-black btn-xs"><img src={require('./chart.png')} alt="" /></button>
+                        <button onClick={this.tableCalled} className="navButton-black btn-xs"><img  src={require('../../../resources/images/table.png')} alt="" /></button>
+                        <button onClick={this.chartCalled} className="navButton-black btn-xs"><img src={require('../../../resources/images/chart.png')} alt="" /></button>
                     </span>
                 {p}
                 

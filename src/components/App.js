@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { ordersFetchData, usersFetchData , loginUser ,instrumentsFetchData , pushNotification} from '../actions/actions';
-import {LoginComponent} from './login/Login.component';
+import {LoginComponent} from './Login/Login.component';
 import  '../styles/common.css';
 import '../styles/login.css';
 
-import MainComponent from './MainComponent';
+import MainComponent from './main';
 const mapStateToProps = (state) => {
 
     return {

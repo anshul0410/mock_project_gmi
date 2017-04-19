@@ -39,7 +39,7 @@ export default class TraderChartComponent extends React.Component {
     }
 
     render() {
-        console.log(this.width, 'render');
+        // console.log(this.width, 'render');
         var orderData = [];
         var height = 50;
         if (this.props.orders) {
