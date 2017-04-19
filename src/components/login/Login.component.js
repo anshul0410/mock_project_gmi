@@ -18,7 +18,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import CircularProgress from 'material-ui/CircularProgress';
 
-
+import {userUrl} from '../../configurations/url.config';
 
 export class LoginComponent extends React.Component {
     constructor(props) {
@@ -34,7 +34,7 @@ export class LoginComponent extends React.Component {
 
     }
     componentDidMount() {
-        this.props.fetchUsersData('http://localhost:8080/users');
+        this.props.fetchUsersData(userUrl);
     }
     // componentWillMount() {
     //     injectTapEventPlugin();

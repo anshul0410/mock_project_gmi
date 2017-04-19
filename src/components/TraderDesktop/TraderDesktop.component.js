@@ -9,6 +9,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 //import TraderTableComponent from './order_table/TraderTableComponent'
 import cookie from 'react-cookie';
 import {Link} from 'react-router';
+import {orderUrl} from '../../configurations/url.config';
 
 export default class TraderDesktopComponent extends React.Component {
 
@@ -20,7 +21,7 @@ export default class TraderDesktopComponent extends React.Component {
     }
     
     componentWillMount(){
-        this.props.fetchOrdersData('http://localhost:8080/orders','get');
+        this.props.fetchOrdersData(orderUrl,'get');
         firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             this.isLoggedIn = true;

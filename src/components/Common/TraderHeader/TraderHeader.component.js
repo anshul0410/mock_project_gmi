@@ -8,12 +8,12 @@ import Badge from 'material-ui/Badge';
 import IconButton from 'material-ui/IconButton';
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-
 import MenuItem from 'material-ui/MenuItem';
 import * as colors from 'material-ui/styles/colors';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FlatButton from 'material-ui/FlatButton';
-import Drawer from './Drawer.component'
+import Drawer from './Drawer.component';
+import {websocketUrl} from '../../../configurations/url.config';
 
 
 export default class TraderHeaderComponent extends React.Component {
@@ -32,6 +32,7 @@ export default class TraderHeaderComponent extends React.Component {
         this.notificationBadge = 0;
         this.handlePlacedData=this.handlePlacedData.bind(this);
         this.handleExecutedData=this.handleExecutedData.bind(this);
+        this.handleTable = this.handleTable.bind(this)
        
         
     }
@@ -105,14 +106,19 @@ export default class TraderHeaderComponent extends React.Component {
                  }
                 }
     }
+    handleTable(data){
+this.props.pushNotification(data[0], data[1]);
+    }
+
      handleData(data) {
+
        
         if (data[0] == "4" && data[1] == "2") {
 
             data = JSON.parse(data.substring(2, ));
             
-            this.props.pushNotification(data[0], data[1]);
-          
+            // this.props.pushNotification(data[0], data[1]);
+          this.handleTable(data)
             if(data[0]=='allOrdersDeletedEvent' ){
                 NotificationManager.error('All Items deleted','Trade Status' ,1500 );
             }
@@ -209,8 +215,8 @@ export default class TraderHeaderComponent extends React.Component {
                     </nav>
                    
                    <Drawer open={this.state.open} allNotifications={this.allNotifications} handleClose={this.handleClose} menuObject={this.menuObject}></Drawer>
-
-                <Websocket url='ws://localhost:8080/socket.io/?transport=websocket'
+                   
+                <Websocket url={websocketUrl}
                     onMessage={this.handleData}  reconnect={true}/>
                     <NotificationContainer/>
 

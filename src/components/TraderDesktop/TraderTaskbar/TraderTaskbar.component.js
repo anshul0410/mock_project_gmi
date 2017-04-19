@@ -17,7 +17,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import RefreshIndicator from 'material-ui/RefreshIndicator';
-
+import {userUrl, orderUrl, instrumentUrl} from '../../../configurations/url.config'
 
 export default class TraderTaskbarComponent extends React.Component {
     constructor(props) {
@@ -40,22 +40,22 @@ export default class TraderTaskbarComponent extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUsersData('http://localhost:8080/users');
-        this.props.fetchInstrumentsData('http://localhost:8080/instruments')
+        this.props.fetchUsersData(userUrl);
+        this.props.fetchInstrumentsData(instrumentUrl)
     }
 
 
     refreshTrader() {
         // console.log('refresh', this.props);
         
-        this.props.fetchOrdersData('http://localhost:8080/orders', 'get');
+        this.props.fetchOrdersData(orderUrl, 'get');
         
 
     }
 
     deleteAllTrader() {
         // console.log('delete');
-        this.props.fetchOrdersData('http://localhost:8080/orders', 'del');
+        this.props.fetchOrdersData(orderUrl, 'del');
         //this.setstate
         //   this.props.fetchOrdersData('http://localhost:8080/orders','get');
     }
@@ -102,7 +102,7 @@ export default class TraderTaskbarComponent extends React.Component {
             }
           
 
-            this.props.fetchOrdersData('http://localhost:8080/orders', 'post', data);
+            this.props.fetchOrdersData(orderUrl, 'post', data);
         }
     }
     // handleData(data) {
