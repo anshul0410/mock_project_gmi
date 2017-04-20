@@ -74,7 +74,7 @@ export default class TraderHeaderComponent extends React.Component {
         //console.log(dataPlaced);
         var date = new Date().toLocaleString();
         if (dataPlaced.status.toLowerCase() === 'new') {
-            var n = `Quantity ${dataPlaced.quantityPlaced} of OrderId ${dataPlaced.orderId} has been Placed`;
+            var n = `Quantity ${dataPlaced.quantityPlaced} of OrderId ${dataPlaced.orderId}, Placed`;
             //var nf = <MenuItem>{n}</MenuItem> ;
             this.allNotifications.push(n);
             this.menuItems.push(n);
@@ -90,7 +90,7 @@ export default class TraderHeaderComponent extends React.Component {
             this.menuObject.push(d);
         }
         else {
-            var n = `OrderId ${dataPlaced.orderId} is fully Placed`;
+            var n = `OrderId ${dataPlaced.orderId}, fully Placed`;
             //var nf = <MenuItem>{n}</MenuItem> ;
             this.allNotifications.push(n);
             this.menuItems.push(n);
@@ -140,10 +140,10 @@ export default class TraderHeaderComponent extends React.Component {
         //             this.menuObject.push(d);
         //          }
         //         }
-        console.log(dataExecuted);
+        // console.log(dataExecuted);
         var date = new Date().toLocaleString();
         if (dataExecuted.status.toLowerCase() === 'placed' || dataExecuted.status.toLowerCase() === 'new') {
-            var n = `Quantity ${dataExecuted.quantityExecuted} of OrderId ${dataExecuted.orderId} has been Executed`;
+            var n = `Quantity ${dataExecuted.quantityExecuted} of OrderId ${dataExecuted.orderId}, Executed`;
             //var nf = <MenuItem>{n}</MenuItem> ;
             this.allNotifications.push(n);
             this.menuItems.push(n);
@@ -159,8 +159,8 @@ export default class TraderHeaderComponent extends React.Component {
             this.menuObject.push(d);
         }
         else {
-            console.log('fully pushed');
-            var n = `OrderId ${dataExecuted.orderId} is fully Executed`;
+            // console.log('fully pushed');
+            var n = `OrderId ${dataExecuted.orderId} , fully Executed`;
             //var nf = <MenuItem>{n}</MenuItem> ;
             this.allNotifications.push(n);
             this.menuItems.push(n);
@@ -174,13 +174,13 @@ export default class TraderHeaderComponent extends React.Component {
                 n
             }
             this.menuObject.push(d);
-            NotificationManager.success('Order Id '+dataExecuted.orderId +' is fully executed','Trade Status',1500);
+            NotificationManager.success('Order Id '+dataExecuted.orderId +', executed','Trade Status',1500);
         }
     }
 
 
     handleTable(data) {
-        this.props.pushNotification(data[0], data[1]);
+        //this.props.pushNotification(data[0], data[1]);
     }
 
     handleData(data) {

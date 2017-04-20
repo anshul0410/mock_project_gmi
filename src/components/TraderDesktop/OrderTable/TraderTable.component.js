@@ -67,8 +67,8 @@ export default class TraderTableComponent extends React.Component {
                 <div className="visible-md visible-lg">
                 
                 <BootstrapTable  className="table table-default" data={orders} striped={true} condensed pagination>
-                    <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
-                    <TableHeaderColumn className="tableHeader" width="200px" dataField="creationTime" dataFormat={this.dateFormat} dataAlign="center" dataSort={true}>creation Time</TableHeaderColumn>
+                    <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>ID</TableHeaderColumn>
+                    <TableHeaderColumn className="tableHeader" width="200px" dataField="creationTime" dataFormat={this.dateFormat} dataAlign="center" dataSort={true}>Creation Time</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="symbol" dataAlign="center"> Symbol</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader " dataField="quantity" dataAlign="center" dataSort={true}>Quantity</TableHeaderColumn>
@@ -83,7 +83,7 @@ export default class TraderTableComponent extends React.Component {
                 <div className="visible-xs">
             
                     <BootstrapTable className="table table-default"  data={orders} striped={true} condensed pagination>
-                        <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
+                        <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>ID</TableHeaderColumn>
                         <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>
                         <TableHeaderColumn className="tableHeader" dataField="symbol" dataAlign="center"> Symbol</TableHeaderColumn>
                         <TableHeaderColumn className="tableHeader " dataField="quantity" dataAlign="center" dataSort={true}>Quantity</TableHeaderColumn>
@@ -94,8 +94,8 @@ export default class TraderTableComponent extends React.Component {
                 <div className="visible-sm ">
             
                     <BootstrapTable className="table table-default"  data={orders} striped={true} condensed pagination>
-                    <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>id</TableHeaderColumn>
-                    <TableHeaderColumn className="tableHeader" dataField="creationTime" dataAlign="center"  dataSort={true}>creation Time</TableHeaderColumn>
+                    <TableHeaderColumn className="tableHeader" dataField="id" isKey={true} dataAlign="center" dataSort={true}>ID</TableHeaderColumn>
+                    <TableHeaderColumn className="tableHeader" dataField="creationTime" dataAlign="center"  dataSort={true}>Creation Time</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="side" dataAlign="center" >Side</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="symbol" dataAlign="center"> Symbol</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader " dataField="quantity" dataAlign="center" dataSort={true}>Quantity</TableHeaderColumn>

@@ -22,27 +22,6 @@ export default class DrawerComponent extends React.Component {
     }
 
 
-    // searchInNotifications(e){
-    //     this.setState({
-    //         isSearch:true
-    //     })
-    //     //console.log(this.state.searchValue);
-    //     var menuObject = this.props.menuObject;
-    //     //console.log(menuItemsString);
-    //     var x = this.refs.searchValue.getValue();
-    //     //console.log(x,'x - ');
-    //     var y = [];
-    //     for(let mi in menuObject){
-    //         if(menuObject[mi].toLowerCase().indexOf(x) > -1){
-    //             //console.log('found',menuObject[mi],x,menuObject[mi]);
-    //             y.push(this.props.allNotifications[mi]);
-    //         }
-    //     }
-    //     //console.log(y);
-    //     this.setState({
-    //         showMenuItems : y
-    //     });
-    // }
 
     searchInNotifications(e) {
         this.setState({
@@ -153,6 +132,10 @@ export default class DrawerComponent extends React.Component {
             },
             underlineStyle: {
 
+            },
+            filterStyle:{
+                    //borderLeft :' 1px solid red',
+                width: "45%" 
             }
 
         }
@@ -177,25 +160,26 @@ export default class DrawerComponent extends React.Component {
         allNotificationsdisplay = allNotificationsdisplay.reverse();
         //console.log(allNotificationsdisplay.length,'allNotificationsdisplayreverse');
         return (
-            <Drawer className="drawer" docked={false} width={375} open={this.props.open} onRequestChange={this.props.handleClose}  >
+            <Drawer className="drawer" docked={false} width={355} open={this.props.open} onRequestChange={this.props.handleClose}  >
 
                 <MenuItem style={styleCancel} onClick={this.props.handleClose} className="pull-right "><span className="text-danger"> X</span></MenuItem>
                 <MenuItem onClick={this.props.handleClose}></MenuItem>
                 <div className="row">
                     <TextField
-                        floatingLabelText="Search in Notifications"
+                        floatingLabelText="Search Notifications"
                         ref="searchValue"
                         onChange={this.searchInNotifications}
                         floatingLabelStyle={styles.floatingLabelStyle}
                         underlineFocusStyle={styles.underlineStyle}
-                        style={{ width: "60%" }}
+                        style={{ width: "55%" }}
                         className="col-xs-8"
                     />
-                    <SelectField style={{ width: "40%" }} className="col-xs-4"
+                    <SelectField className="col-xs-4"
                         floatingLabelText="Search Filter"
                         floatingLabelStyle={{ color: 'rgba(255, 255, 255,0.7' }}
                         onChange={this.handleSelectChange.bind(this)}
                         value={this.state.selectedFilter}
+                        style={styles.filterStyle}
                     >
                         <MenuItem value='All' primaryText='All' />
                         <MenuItem value='Order Id' primaryText='Order Id' />
