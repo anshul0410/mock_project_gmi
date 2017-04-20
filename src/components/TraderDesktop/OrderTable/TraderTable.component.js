@@ -42,8 +42,12 @@ export default class TraderTableComponent extends React.Component {
             this.props.orders.map((item)=>{
           if(item.status.slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
             || item.side.slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
+            || item.creationTime.toString().slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
+            || item.traderId.slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
             || item.symbol.slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
             || item.quantity.toString().slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
+            || item.limitPrice.toString().slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
+            || item.priority.toString().slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0
             || item.id.toString().slice(0,this.state.search.length).toUpperCase().search(this.state.search.toUpperCase()) >=0)
         orders.push(item);
          })
