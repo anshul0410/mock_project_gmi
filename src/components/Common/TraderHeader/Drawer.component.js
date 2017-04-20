@@ -160,7 +160,7 @@ export default class DrawerComponent extends React.Component {
         allNotificationsdisplay = allNotificationsdisplay.reverse();
         //console.log(allNotificationsdisplay.length,'allNotificationsdisplayreverse');
         return (
-            <Drawer className="drawer" docked={false} width={355} open={this.props.open} onRequestChange={this.props.handleClose}  >
+            <Drawer className="drawer" docked={false} width={320} open={this.props.open} onRequestChange={this.props.handleClose}  >
 
                 <MenuItem style={styleCancel} onClick={this.props.handleClose} className="pull-right "><span className="text-danger"> X</span></MenuItem>
                 <MenuItem onClick={this.props.handleClose}></MenuItem>

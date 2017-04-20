@@ -75,7 +75,7 @@ export default class TraderTaskbarComponent extends React.Component {
         var side = ['Buy', 'Sell'];
         var traders = this.props.users;
         // var len=0;
-            NotificationManager.info(no + ' Trades are initiated ', 'Trade Status', 1500);
+            NotificationManager.info(no + ' Trades Initiated ', 'Trade Status', 1500);
         
         for (let i = 0; i < no; i++) {
             var inindex = Math.floor(Math.random() * 30);

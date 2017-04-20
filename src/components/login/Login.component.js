@@ -62,7 +62,7 @@ export class LoginComponent extends React.Component {
         console.log(email);
         var password = this.refs.PasswordInput.getValue();
         console.log(password);
-        var password = name.replace(allSpaces, '').toLowerCase();
+        //var password = name.replace(allSpaces, '').toLowerCase();
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({loginStatus:'Authenticated'})
@@ -78,7 +78,10 @@ export class LoginComponent extends React.Component {
                 var errorMessage = error.message;
                 //this.loginError = errorMessage;
                 console.log(errorMessage);
-                this.setState({loginStatus:'Error Logging You in. Please Re-enter'})
+                this.setState({
+                    loginStatus:'Error Logging You in. Please Re-enter',
+                    loadingIcon:false
+                })
             })
     }
 
@@ -154,7 +157,7 @@ export class LoginComponent extends React.Component {
                 <p className="text-center">{this.state.loginStatus} </p>
                 <input id="tab-1" style={{}} type="radio" name="tab" className="sign-in" checked/><label htmlFor="tab-1" className="tab"></label>
 		        <input id="tab-2" type="radio" name="tab" className="sign-up"/><label htmlFor="tab-2" className="tab">Log In</label>
-		        <div className="login-form">
+		        <div className="login-form ">
 			        <div className="">
                     <div >
                         <div className="" >
@@ -193,9 +196,10 @@ export class LoginComponent extends React.Component {
 					        <input id="check" type="checkbox" className="check"  />
 					        <label htmlFor="check"><span className="icon"></span> Keep me Signed in</label>
 				        </div>
-				        <div className="group">
+				        
+                        <div className="group ">
 					        
-                            <RaisedButton onTouchTap={this.userLoginFunction} label={loadingIcon} className="RaisedButton" buttonStyle={styles.buttonStyle} />
+                            <RaisedButton  onTouchTap={this.userLoginFunction} label={loadingIcon} className="RaisedButton" buttonStyle={styles.buttonStyle} />
                             
 				        </div>
 				        <div className="hr">
