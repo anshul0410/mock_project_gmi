@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, browserHistory } from "react-router";
+import { Router, Route, IndexRoute,hashHistory, browserHistory } from "react-router";
 
 import configureStore from '../store/configureStore';
 import App from '../components/app';
@@ -18,7 +18,7 @@ export const store = configureStore();
 
 var route= <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <Provider store={store}>
-          <Router history={browserHistory}>
+          <Router history={hashHistory}>
              <Route path="/" component={App}>
                 <IndexRoute component={LoginComponent}/>
                 <Route path="/trader" component={TraderDesktopComponent}></Route>
