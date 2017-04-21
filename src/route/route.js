@@ -12,6 +12,8 @@ import TraderDesktopComponent from '../components/TraderDesktop/TraderDesktop.co
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+
 export const store = configureStore();
 
 var route= <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>

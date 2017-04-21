@@ -180,7 +180,7 @@ export default class TraderHeaderComponent extends React.Component {
 
 
     handleTable(data) {
-        //this.props.pushNotification(data[0], data[1]);
+        this.props.pushNotification(data[0], data[1]);
     }
 
     handleData(data) {
