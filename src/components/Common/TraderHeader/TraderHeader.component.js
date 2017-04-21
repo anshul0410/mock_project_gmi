@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { browserHistory } from 'react-router';
+import { hashHistory,browserHistory } from 'react-router';
 import cookie from 'react-cookie';
 import * as firebase from 'firebase';
 import Websocket from 'react-websocket';
@@ -228,7 +228,7 @@ export default class TraderHeaderComponent extends React.Component {
                 // Sign-out successful.
                 cookie.remove('Trader', { path: '/' });
                 console.log('signOut successful');
-                browserHistory.push('/');
+                hashHistory.push('/');
             }).catch((error) => {
                 // An error happened.
                 alert('signOut unsuccessful due to ' + error);

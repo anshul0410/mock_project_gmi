@@ -15,6 +15,7 @@ export default class MainComponent extends React.Component {
             // console.log(this.props,'asd');
             return ( 
                 <div className ="container-fluid " >
+				
                 {
                     React.cloneElement(this.props.children, this.props)
                 } 

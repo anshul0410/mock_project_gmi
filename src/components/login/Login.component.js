@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { browserHistory } from 'react-router'
+import { hashHistory,browserHistory } from 'react-router'
 import cookie from 'react-cookie';
 import * as firebase from 'firebase';
 
@@ -68,7 +68,7 @@ export class LoginComponent extends React.Component {
                 this.setState({loginStatus:'Authenticated'})
                 cookie.save('Trader', selected, { path: '/' });
                 this.props.loginUser(selected);
-                browserHistory.push('/trader');
+                hashHistory.push('/trader');
                 var user = firebase.auth().currentUser;
 
             })
