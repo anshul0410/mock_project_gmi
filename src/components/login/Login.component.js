@@ -157,9 +157,9 @@ export class LoginComponent extends React.Component {
                 <input id="tab-1" style={{}} type="radio" name="tab" className="sign-in" checked/><label htmlFor="tab-1" className="tab"></label>
 		        <input id="tab-2" type="radio" name="tab" className="sign-up"/><label htmlFor="tab-2" className="tab">Log In</label>
 		        <div className="login-form ">
-			        <div className="">
-                    <div >
-                        <div className="" >
+			        <div className="loginField">
+                    <div className="loginPasswordField" >
+                        <div className="loginSelectField" >
 					        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                                 <SelectField
                                 className="input text-center border"
@@ -190,7 +190,7 @@ export class LoginComponent extends React.Component {
                                 underlineFocusStyle={styles.underlineFocusStyle}
                             />
 				        </div>
-                        </div>
+                    </div>
 				        <div className="group">
 					        <input id="check" type="checkbox" className="check"  />
 					        <label htmlFor="check"><span className="icon"></span> Keep me Signed in</label>

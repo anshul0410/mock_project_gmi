@@ -126,14 +126,20 @@ export default class TraderTableComponent extends React.Component {
             underlineFocusStyle:{borderColor: colors.blue50},
              filterStyle:{
                     //borderLeft :' 1px solid red',
-                width: "45%" 
+                    
+                width: 160
             }
         }
         return (
 
             <div className="traderTable">
-                 <TextField className="" hintText="search In Table" style={styleSearch.inputFieldStyle}  floatingLabelFocusStyle={styleSearch.floatingLabelFocusStyle} underlineFocusStyle={styleSearch.underlineFocusStyle} onChange={this.searchOrder} floatingLabelText="Search Orders"/><br />
-                 <SelectField className=""
+                <div className="row col-xs-12">
+                 <TextField className="searchTextFilter col-xs-7" hintText="search In Table" 
+                 style={styleSearch.inputFieldStyle}  
+                 floatingLabelFocusStyle={styleSearch.floatingLabelFocusStyle}
+                  underlineFocusStyle={styleSearch.underlineFocusStyle} onChange={this.searchOrder} 
+                  floatingLabelText="Search Orders"/>
+                 <SelectField className="searchFilterTable col-xs-5"
                         floatingLabelText="Search Filter"
                         floatingLabelStyle={{ color: 'rgba(255, 255, 255,0.7' }}
                         onChange={this.handleSelectChange.bind(this)}
@@ -152,7 +158,7 @@ export default class TraderTableComponent extends React.Component {
                         <MenuItem value='Status' primaryText='Status' />
                         <MenuItem value='Trader' primaryText='Trader' />
                     </SelectField>
-                
+                </div>
                 <div className="visible-md visible-lg">
 
 
@@ -169,7 +175,7 @@ export default class TraderTableComponent extends React.Component {
                     <TableHeaderColumn className="tableHeader" dataField="status" dataAlign="center" dataSort={true}>Status</TableHeaderColumn>
                     <TableHeaderColumn className="tableHeader" dataField="traderId" dataAlign="center" dataSort={true}>Trader</TableHeaderColumn>
                 </BootstrapTable>
-            </div>
+                 </div>
                 <div className="visible-xs">
             
                     <BootstrapTable className="table table-default"  data={orders} striped={true} condensed pagination>

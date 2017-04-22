@@ -184,10 +184,7 @@ export default class TraderHeaderComponent extends React.Component {
     }
 
     handleData(data) {
-
-
         if (data[0] == "4" && data[1] == "2") {
-
             data = JSON.parse(data.substring(2, ));
 
             // this.props.pushNotification(data[0], data[1]);

@@ -182,3 +182,41 @@ sign-in-htm >hr{
         background-size: inherit;
     }
 }
+/*@media (min-width:370) and (max-width:383){
+	
+}*/
+@media (min-width:320px) and (max-width:340px){
+	.loginPasswordField {
+		margin-left:-50px !important ; 
+	}
+	.RaisedButton{
+		margin-left:-49px !important;
+	}
+}
+@media (min-width:341px) and (max-width:356px){
+	.loginPasswordField {
+		margin-left:-41px !important ;
+		 
+	}
+	.RaisedButton{
+		margin-left:-40px !important;
+	}
+}
+@media (min-width:356px) and (max-width:375px){
+	.loginPasswordField {
+		margin-left:-31px !important ;
+		 
+	}
+	.RaisedButton{
+		margin-left:-32px !important;
+	}
+}
+@media (min-width:376px) and (max-width:409px){
+	.loginPasswordField {
+		margin-left:-20px !important ;
+		 
+	}
+	.RaisedButton{
+		margin-left:-16px !important;
+	}
+}

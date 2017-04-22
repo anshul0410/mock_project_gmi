@@ -368,3 +368,24 @@ body {
         margin-left:120px;
     }
 }
+@media (min-width:320px) and (max-width:345px) {
+    .searchTextFilter{
+        margin-left:0px !important; 
+        width:100% !important;
+    }
+    .searchFilterTable{
+        width:100% !important;
+    }
+  
+}
+
+@media (min-width:346px) and (max-width:495px) {
+    .searchTextFilter{
+        margin-left:0px !important; 
+        width:100% !important;
+    }
+    .searchFilterTable{
+        width:100% !important;
+    }
+}
+
