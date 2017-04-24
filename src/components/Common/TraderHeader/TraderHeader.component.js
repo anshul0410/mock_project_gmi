@@ -268,7 +268,7 @@ export default class TraderHeaderComponent extends React.Component {
                         <h4 id="headerRow" className="col-xs-12 "><b className="headerTitle">Trader Desktop</b>
                             <span className="pull-right " id="signOut"><a href="" onClick={this.signOut}>Sign Out </a>
                             </span>
-                            <span className="pull-right" > <b id="headerUserName">{Trader.name}</b>
+                            <span className="pull-right" > <b id="headerUserName">{firebase.auth().currentUser.displayName}</b>
                             </span>
                             <span className="pull-right notificationBadge" >
                                 <Badge style={styleBadge}
