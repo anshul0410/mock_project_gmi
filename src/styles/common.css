@@ -298,6 +298,15 @@ body {
 .notification-error:before {
   content: "\f057";
 }
+.Executed{
+    background-color:rgba(7, 171, 12, 0.48)!important;
+}
+.Placed{
+    background-color: rgba(226, 239, 32, 0.6)!important
+}
+.New{
+    background-color: rgba(152, 7, 14, 0.53)!important
+}
 
 .legend {
     background-color:rgba(247, 166, 166, 0) !important;
